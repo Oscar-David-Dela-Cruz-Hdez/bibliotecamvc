@@ -35,6 +35,7 @@
 <body style="background: url('<?php echo APP_URL; ?>app/views/img/659155.jpg') no-repeat center / cover;">
     <?php
         use app\controllers\vistaControllore;
+        use app\controllers\usuarioController;
 
 
         $vistaControllore = new vistaControllore();

@@ -46,7 +46,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h3 class="card-title text-center">Registro</h3>
-                            <form id="registroForm">
+                            <form id="registroForm"  method="POST" action="<?php echo APP_URL; ?>UsuarioController/registrarUsuario">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="username">Usuario</label>
