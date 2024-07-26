@@ -20,6 +20,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'login') {
     exit();
 }
 
+session_start();
+
 // Parseo de la URL y determinación del controlador
 $url = isset($_GET['views']) ? explode("/", $_GET['views']) : ["principale"];
 $vistaControllore = new vistaControllore();
@@ -30,8 +32,6 @@ if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
     header('Location: ' . APP_URL . 'iniziaSessione');
     exit();
 }
-
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -43,7 +43,19 @@ session_start();
         <!-- header y nav -->
         <?php
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-            include 'app/views/inc/nav2.php'; // Nav para usuarios autenticados
+            switch ($_SESSION['idrol']) {
+                case 1:
+                    include 'app/views/inc/nav2.php'; // Nav para rol 1
+                    break;
+                case 2:
+                    include 'app/views/inc/nav3.php'; // Nav para rol 2
+                    break;
+                case 3:
+                    include 'app/views/inc/nav4.php'; // Nav para rol 3
+                    break;
+                default:
+                    include 'app/views/inc/nav1.php'; // Nav para usuarios no autenticados
+            }
         } else {
             include 'app/views/inc/nav1.php'; // Nav para usuarios no autenticados
         }

@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/documentazione.css">
+<!-- Tu vista de registro -->
+<?php include_once 'inc/cdn_includes.php'; ?>
 
 <div class="d-flex flex-column min-vh-100">
     <!-- contenido -->
@@ -36,11 +37,25 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="password">Contraseña</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password')">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="password2">Repetir Contraseña</label>
-                                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Repita su contraseña" required>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password2" name="password2" placeholder="Repita su contraseña" required>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password2')">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
@@ -51,3 +66,5 @@
         </div>
     </main>
 </div>
+
+<?php include_once 'inc/scripts_includes.php'; ?>

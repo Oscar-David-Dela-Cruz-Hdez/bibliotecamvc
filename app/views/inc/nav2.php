@@ -20,13 +20,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>principale/">Inicio</a>
+                <a class="nav-link" href="<?php echo APP_URL; ?>utentePrincipale/">Inicio</a>
             </li> 
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>libri/">Libros</a>
+                <a class="nav-link" href="<?php echo APP_URL; ?>utenteLibri/">Libros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>regolamento/">Reglamento</a>
+                <a class="nav-link" href="<?php echo APP_URL; ?>utenteRegolamento/">Reglamento</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo APP_URL; ?>profilo/">Perfil</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo APP_URL; ?>profilo/">Perfil</a>

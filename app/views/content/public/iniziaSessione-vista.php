@@ -6,7 +6,6 @@ if (session_status() == PHP_SESSION_NONE) {
 
 <link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/inizio.css">
 <div class="d-flex flex-column min-vh-100">
-    <!-- contenido -->
     <main class="container mt-5 flex-fill">
         <div class="row justify-content-center">
             <div class="col-md-6">
