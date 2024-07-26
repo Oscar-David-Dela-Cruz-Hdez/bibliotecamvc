@@ -2,43 +2,6 @@
 
     <div class="d-flex flex-column min-vh-100">
     
-        <!-- header -->
-        <header class="header py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="text-center">Biblioteca Virtual</h1>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- nav -->
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.html">
-                <img src="logo.png" alt="Logo" style="width: 40px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>principale/">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>iniziaSessione/">Inicio Sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>documentazione/">Registrarse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>libri/">Libros</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
         <!-- contenido -->
         <main class="container mt-5 flex-fill">
             <div class="row">
@@ -60,12 +23,7 @@
             </div>
         </main>
 
-        <!-- footer -->
-        <footer class="footer mt-auto py-3">
-            <div class="container">
-                <p class="text-center">&copy; 2024 Biblioteca Virtual. Todos los derechos reservados.</p>
-            </div>
-        </footer>
+ 
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
