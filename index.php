@@ -5,25 +5,24 @@ require_once "./autoload.php";
 
 use app\controllers\vistaControllore;
 
-// Manejo especial para la acción de registrar un usuario
+// esta wea maneraja el registro de usuarios
 if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
     $usuarioController = new \app\controllers\UsuarioController();
     $usuarioController->registrarUsuario();
     exit();
 }
 
-// Parsear la URL para determinar la vista o el controlador a utilizar
+// Pagrege esto para parsear la url y que determine que controlador usara
 if (isset($_GET['views'])) {
     $url = explode("/", $_GET['views']);
 } else {
     $url = ["principale"];
 }
 
-// Inicializar el controlador de vistas
 $vistaControllore = new vistaControllore();
 $vista = $vistaControllore->obtenerVistasControlador($url[0]);
 
-// Manejo especial para el registro de usuarios
+// y agrege esto para que la web no se rompa y la rediriga a el inicio de secion
 if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
     header('Location: ' . APP_URL . 'iniziaSessione');
     exit();
