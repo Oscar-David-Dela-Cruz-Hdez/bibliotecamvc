@@ -1,40 +1,38 @@
 <?php
 namespace app\models;
 
+use app\models\Conexion;
+use PDO;
+use PDOException;
+
 class Usuario {
-    private $usuario;
-    private $nombre;
-    private $apellidoP;
-    private $apellidoM;
-    private $correo;
-    private $contrasena;
-    private $idRol;
+    private $db;
 
-    public function setUsuario($usuario) { $this->usuario = $usuario; }
-    public function setNombre($nombre) { $this->nombre = $nombre; }
-    public function setApellidoP($apellidoP) { $this->apellidoP = $apellidoP; }
-    public function setApellidoM($apellidoM) { $this->apellidoM = $apellidoM; }
-    public function setCorreo($correo) { $this->correo = $correo; }
-    public function setContrasena($contrasena) { $this->contrasena = $contrasena; }
-    public function setIdRol($idRol) { $this->idRol = $idRol; }
+    public function __construct() {
+        $this->db = new Conexion();
+    }
 
-    public function registrar() {
-        $conexion = Conexion::conectar();
-        $stmt = $conexion->prepare("CALL InsertarCliente(?, ?, ?, ?, ?, ?, '', ?)");
-        $stmt->bind_param("ssssssi", 
-            $this->usuario, 
-            $this->nombre, 
-            $this->apellidoP, 
-            $this->apellidoM, 
-            $this->correo, 
-            $this->contrasena, 
-            $this->idRol
-        );
+    public function registrarUsuario($username, $name, $lastname, $lastname2, $email, $password) {
+        try {
+            $query = "CALL InsertarCliente(:username, :name, :lastname, :lastname2, :email, :password, :imgusuario, :idrol)";
+            $stmt = $this->db->dbh->prepare($query);
 
-        $resultado = $stmt->execute();
-        $stmt->close();
-        $conexion->close();
-        return $resultado;
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':lastname', $lastname);
+            $stmt->bindParam(':lastname2', $lastname2);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':password', $password);
+            $imgusuario = "app/views/img/user.png";
+            $stmt->bindParam(':imgusuario', $imgusuario);
+            $idrol = 1;
+            $stmt->bindParam(':idrol', $idrol);
+
+            $stmt->execute();
+            return true;
+        } catch(PDOException $e) {
+            return false;
+        }
     }
 }
 ?>

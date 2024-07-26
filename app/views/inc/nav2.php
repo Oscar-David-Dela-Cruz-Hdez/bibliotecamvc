@@ -23,20 +23,14 @@
                 <a class="nav-link" href="<?php echo APP_URL; ?>principale/">Inicio</a>
             </li> 
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>iniziaSessione/">Inicio Sesión</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>documentazione/">Registro</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="<?php echo APP_URL; ?>libri/">Libros</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo APP_URL; ?>regolamento/">Reglamento</a>
             </li>
-            <!-- <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="<?php echo APP_URL; ?>profilo/">Perfil</a>
-            </li> -->
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="./img/st,small,507x507-pad,600x600,f8f8f8.jpg">.</a>
             </li>

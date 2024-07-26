@@ -4,11 +4,10 @@ require_once "./config/applicazione.php";
 require_once "./autoload.php";
 
 // Eliminar lógica de inicio de sesión
-
 if(isset($_GET['views'])){
-    $url=explode("/", $_GET['views']);
+    $url = explode("/", $_GET['views']);
 }else{
-    $url=["principale"];
+    $url = ["principale"];
 }
 
 use app\controllers\vistaControllore;
@@ -16,6 +15,11 @@ use app\controllers\vistaControllore;
 $vistaControllore = new vistaControllore();
 $vista = $vistaControllore->obtenerVistasControlador($url[0]);
 
+// Redirigir después de registro exitoso
+if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
+    header('Location: ' . APP_URL . 'iniziaSessione');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
