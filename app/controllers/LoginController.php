@@ -4,49 +4,34 @@ namespace app\controllers;
 use app\models\LoginUsuario;
 
 class LoginController {
+    private $loginUsuario;
+
+    public function __construct() {
+        $this->loginUsuario = new LoginUsuario();
+    }
 
     public function login() {
-        if (isset($_POST['correo']) && isset($_POST['contrasena'])) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $correo = $_POST['correo'];
-            $contrasena = $_POST['contrasena'];
+            $password = $_POST['contrasena'];
 
-            // Crea una instancia del modelo de LoginUsuario
-            $loginModel = new LoginUsuario();
+            // Pasar solo el correo al método login
+            $usuario = $this->loginUsuario->login($correo);
 
-            // Llama al método login del modelo
-            $usuario = $loginModel->login($correo);
-
-            // Verifica si se obtuvo el usuario
-            if ($usuario && isset($usuario['vchContrasena'])) {
-                // Verifica la contraseña
-                if (password_verify($contrasena, $usuario['vchContrasena'])) {
-                    // La contraseña es correcta
-                    session_start();
-                    $_SESSION['logged_in'] = true;
-                    $_SESSION['user_email'] = $correo;
-                    $_SESSION['user_role'] = $usuario['idrol'];
-
-                    // Redirige según el rol del usuario
-                    if ($usuario['idrol'] == 1) {
-                        header('Location: ' . APP_URL . 'utentePrincipale');
-                    } elseif ($usuario['idrol'] == 2) {
-                        header('Location: ' . APP_URL . 'bibliotecarioPrincipal');
-                    } elseif ($usuario['idrol'] == 3) {
-                        header('Location: ' . APP_URL . 'adminPrincipal');
-                    }
-                    exit();
-                } else {
-                    // Contraseña incorrecta
-                    session_start();
-                    $_SESSION['login_error'] = 'Correo o contraseña incorrectos.';
-                    header('Location: ' . APP_URL . 'iniziaSessione');
-                    exit();
-                }
-            } else {
-                // Usuario no encontrado
+            if ($usuario && password_verify($password, $usuario['vchContrasena'])) {
+                // Inicio de sesión exitoso
                 session_start();
-                $_SESSION['login_error'] = 'Correo o contraseña incorrectos.';
-                header('Location: ' . APP_URL . 'iniziaSessione');
+                $_SESSION['usuario'] = $usuario['vchCorreo'];
+                $_SESSION['idrol'] = $usuario['idrol'];
+
+                header("Location: " . APP_URL . "principale/");
+                exit();
+            } else {
+                // Error en el inicio de sesión
+                session_start();
+                $_SESSION['login_error'] = "Correo o contraseña incorrectos.";
+
+                header("Location: " . APP_URL . "login");
                 exit();
             }
         }

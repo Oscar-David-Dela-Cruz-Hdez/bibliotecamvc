@@ -2,9 +2,9 @@
 namespace app\models;
 
 use app\models\Conexion;
+use PDO;
 
 class LoginUsuario {
-
     private $conexion;
 
     public function __construct() {
@@ -15,15 +15,14 @@ class LoginUsuario {
 
     public function login($correo) {
         // Prepara la consulta para llamar al procedimiento almacenado
-        $stmt = $this->conexion->prepare("CALL spLogin(:correo, @correo, @hashed_password, @idrol)");
+        $stmt = $this->conexion->prepare("CALL spLogin(:correo)");
         $stmt->bindParam(':correo', $correo);
         $stmt->execute();
 
         // Obtén los resultados del procedimiento almacenado
-        $result = $this->conexion->query("SELECT @correo AS vchCorreo, @hashed_password AS vchContrasena, @idrol AS idrol");
-        $usuario = $result->fetch(\PDO::FETCH_ASSOC); // Usar la clase global PDO aquí
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $usuario;
+        return $result;
     }
 }
 ?>
