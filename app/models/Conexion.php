@@ -28,4 +28,10 @@ class Conexion {
             echo "Error en la conexión: " . $this->error;
         }
     }
+
+    // FUNCIO  PUBLICA CONCHETUMARE
+    public function getDBH() {
+        return $this->dbh;
+    }
 }
+?>

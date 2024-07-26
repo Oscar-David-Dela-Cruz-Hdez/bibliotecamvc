@@ -4,35 +4,41 @@ namespace app\controllers;
 use app\models\Usuario;
 
 class UsuarioController {
+    
     public function registrarUsuario() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Obtener los datos del formulario
-            $username = $_POST['username'];
-            $name = $_POST['name'];
-            $lastname = $_POST['lastname'];
-            $lastname2 = $_POST['lastname2'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+        // Recoger datos del formulario
+        $username = $_POST['username'];
+        $name = $_POST['name'];
+        $lastname = $_POST['lastname'];
+        $lastname2 = $_POST['lastname2'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $password2 = $_POST['password2'];
 
-            // Crear instancia del modelo Usuario
-            $usuario = new Usuario();
-
-            // Registrar el usuario
-            $resultado = $usuario->registrarUsuario($username, $name, $lastname, $lastname2, $email, $password);
-
-            if ($resultado) {
-                // Redirigir a la vista de inicio de sesión
-                header('Location: ' . APP_URL . 'UsuarioController/iniciaSessione');
-                exit();
-            } else {
-                echo "Error al registrar el usuario.";
-            }
+        // Verificar si las contraseñas coinciden
+        if ($password !== $password2) {
+            header('Location: ' . APP_URL . 'registro?error=password_mismatch');
+            exit();
         }
-    }
 
-    public function iniciaSessione() {
-        // Aquí puedes cargar la vista de inicio de sesión
-        require_once __DIR__ . '/../views/content/iniciaSessione.php';
+        // Cifrar la contraseña
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        // Crear una instancia del modelo
+        $usuarioModel = new Usuario();
+
+        // Llamar al método para registrar el usuario
+        $resultado = $usuarioModel->registrarUsuario(
+            $username, $name, $lastname, $lastname2, $email, $hashedPassword
+        );
+
+        if ($resultado) {
+            header('Location: ' . APP_URL . 'principale?registro=success');
+            exit();
+        } else {
+            header('Location: ' . APP_URL . 'registro?error=registro_fallido');
+            exit();
+        }
     }
 }
 ?>
