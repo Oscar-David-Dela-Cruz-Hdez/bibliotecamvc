@@ -5,6 +5,8 @@ if (session_status() == PHP_SESSION_NONE) {
 ?>
 
 <link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/inizio.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <div class="d-flex flex-column min-vh-100">
     <main class="container mt-5 flex-fill">
         <div class="row justify-content-center">
@@ -21,8 +23,15 @@ if (session_status() == PHP_SESSION_NONE) {
                             </div>
                             <div class="form-group">
                                 <label for="password" class="main-text">Contraseña</label>
-                                <input type="password" name="contrasena" class="form-control" id="password"
-                                    placeholder="Ingrese su contraseña" required>
+                                <div class="input-group">
+                                    <input type="password" name="contrasena" class="form-control" id="password"
+                                        placeholder="Ingrese su contraseña" required>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
@@ -41,3 +50,5 @@ if (session_status() == PHP_SESSION_NONE) {
         </div>
     </main>
 </div>
+
+<script src="<?php echo APP_URL; ?>app/views/js/inicio.js"></script>

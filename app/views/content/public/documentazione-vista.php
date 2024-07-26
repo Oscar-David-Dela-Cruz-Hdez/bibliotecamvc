@@ -1,5 +1,5 @@
-<!-- Tu vista de registro -->
-<?php include_once 'inc/cdn_includes.php'; ?>
+<link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/documentazione.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 <div class="d-flex flex-column min-vh-100">
     <!-- contenido -->
@@ -67,4 +67,4 @@
     </main>
 </div>
 
-<?php include_once 'inc/scripts_includes.php'; ?>
+<script src="<?php echo APP_URL; ?>app/views/js/registro.js"></script>

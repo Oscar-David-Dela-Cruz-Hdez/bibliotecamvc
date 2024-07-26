@@ -2,7 +2,6 @@
 nome_sessione(APP_NOME_SESSIONE);
 inizia_sessione();
 
-// Definición de funciones
 function nome_sessione($nombre) {
     session_name($nombre);
 }
