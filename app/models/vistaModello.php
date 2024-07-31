@@ -5,7 +5,7 @@
 
 		protected function obtenerVistasModelo($vista, $tipoDeUsuario = 'publico'){
 
-			$listaBlanca=["iniziaSessione","documentazione","libri","regolamento","profilo","utentePrincipale"];
+			$listaBlanca=["iniziaSessione","documentazione","libri","regolamento","profilo","utentePrincipale","bibliLibro","bibliAutor","bibliCategoria","bibliSubcategoria","bibliPrincipale"];
 			$rutaUsuario = "./app/views/content/";
 
 			if ($tipoDeUsuario == 'admin') {
