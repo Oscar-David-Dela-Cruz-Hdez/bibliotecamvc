@@ -2,20 +2,26 @@
 namespace app\controllers;
 
 class vistaControllore {
-    public function obtenerVistasControlador($vista) {
-        // Aquí agregas la lógica para determinar qué vista cargar
-        if($vista == "principale") {
-            return "principale";
-        } else if($vista == "404") {
-            return "404";
+    public function obtenerVistasControlador($vista, $nav) {
+        $rutaBase = "./app/views/content/";
+
+        // io se que ise luego les explico 
+        if ($nav == "nav1") {
+            $vistaFolder = "public";
+        } elseif ($nav == "nav2") {
+            $vistaFolder = "utente";
+        } elseif ($nav == "nav3") {
+            $vistaFolder = "admin";
         } else {
-            // Otras vistas específicas
-            $filePath = "./app/views/content/public/" . $vista . "-vista.php";
-            if(file_exists($filePath)) {
-                return $filePath;
-            } else {
-                return "404";
-            }
+            $vistaFolder = "public";
+        }
+
+        $filePath = $rutaBase . $vistaFolder . "/" . $vista . "-vista.php";
+
+        if (file_exists($filePath)) {
+            return $filePath;
+        } else {
+            return $rutaBase . "public/404-vista.php";
         }
     }
 }

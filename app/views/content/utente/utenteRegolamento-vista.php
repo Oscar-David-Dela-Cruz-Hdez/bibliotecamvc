@@ -2,41 +2,6 @@
 
     <div class="d-flex flex-column min-vh-100">
     
-        <!-- header -->
-        <header class="header py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="text-center">Biblioteca Virtual</h1>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- nav -->
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.html">
-                <img src="logo.png" alt="Logo" style="width: 40px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>utentePrincipale/">Inicio</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>libri/">Libros</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>vicinioSessione/">Cerrar Sesión</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
 
         <!-- contenido -->
         <main class="container mt-5 flex-fill">

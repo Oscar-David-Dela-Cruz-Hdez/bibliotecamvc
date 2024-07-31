@@ -4,30 +4,21 @@ require_once "./config/applicazione.php";
 require_once "./autoload.php";
 
 use app\controllers\vistaControllore;
-use app\controllers\LoginController;
 
-// Manejo de registros de usuarios
+//  registros de usuarios
 if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
     $usuarioController = new \app\controllers\UsuarioController();
     $usuarioController->registrarUsuario();
     exit();
 }
 
-// Manejo del inicio de sesión
-if (isset($_POST['action']) && $_POST['action'] == 'login') {
-    $loginController = new LoginController();
-    $loginController->login();
-    exit();
-}
-
-session_start();
-
-// Parseo de la URL y determinación del controlador
+//no muevan esta wea porfa  aaaaaaaaaaaaaaaaaaaaaaaAAAAAAAAAAAAAAAAAAAAA
 $url = isset($_GET['views']) ? explode("/", $_GET['views']) : ["principale"];
+$nav = isset($_GET['nav']) ? $_GET['nav'] : "nav2"; // Determina el nav actual
 $vistaControllore = new vistaControllore();
-$vista = $vistaControllore->obtenerVistasControlador($url[0]);
+$vista = $vistaControllore->obtenerVistasControlador($url[0], $nav);
 
-// Redirige a la página de inicio de sesión si es necesario
+
 if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
     header('Location: ' . APP_URL . 'iniziaSessione');
     exit();
@@ -42,32 +33,21 @@ if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
     <div class="d-flex flex-column min-vh-100">
         <!-- header y nav -->
         <?php
-        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-            switch ($_SESSION['idrol']) {
-                case 1:
-                    include 'app/views/inc/nav2.php'; // Nav para rol 1
-                    break;
-                case 2:
-                    include 'app/views/inc/nav3.php'; // Nav para rol 2
-                    break;
-                case 3:
-                    include 'app/views/inc/nav4.php'; // Nav para rol 3
-                    break;
-                default:
-                    include 'app/views/inc/nav1.php'; // Nav para usuarios no autenticados
-            }
+        $navFile = "./app/views/inc/" . $nav . ".php";
+        if (file_exists($navFile)) {
+            include $navFile;
         } else {
-            include 'app/views/inc/nav1.php'; // Nav para usuarios no autenticados
+            include "./app/views/inc/nav1.php"; // nav predeterminado
         }
         ?>
 
         <!-- llama a las vistas -->
         <main class="container mt-5 flex-fill">
             <?php
-            if ($vista == "principale" || $vista == "404") {
-                require_once "./app/views/content/public/" . $vista . "-vista.php";
-            } else {
+            if (file_exists($vista)) {
                 require_once $vista;
+            } else {
+                require_once "./app/views/content/public/404-vista.php";
             }
             ?>
         </main>

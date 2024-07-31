@@ -1,4 +1,4 @@
-<!-- app/views/includes/header.php -->
+
 <header class="header py-3">
     <div class="container">
         <div class="row">
@@ -21,19 +21,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo APP_URL; ?>principale/">Inicio</a>
+                    <a class="nav-link" href="<?php echo APP_URL; ?>principale/?nav=nav1">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo APP_URL; ?>iniziaSessione/">Inicio Sesión</a>
+                    <a class="nav-link" href="<?php echo APP_URL; ?>iniziaSessione/?nav=nav1">Inicio Sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo APP_URL; ?>documentazione/">Registro</a>
+                    <a class="nav-link" href="<?php echo APP_URL; ?>documentazione/?nav=nav1">Registro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo APP_URL; ?>libri/">Libros</a>
+                    <a class="nav-link" href="<?php echo APP_URL; ?>libri/?nav=nav1">Libros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php echo APP_URL; ?>regolamento/">Reglamento</a>
+                    <a class="nav-link" href="<?php echo APP_URL; ?>regolamento/?nav=nav1">Reglamento</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./img/st,small,507x507-pad,600x600,f8f8f8.jpg">.</a>

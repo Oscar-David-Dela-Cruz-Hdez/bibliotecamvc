@@ -11,7 +11,7 @@
 
 <!-- nav mamalon -->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="<?php echo APP_URL; ?>principale/">
+    <a class="navbar-brand" href="<?php echo APP_URL; ?>utentePrincipale/nav=nav2">
         <img src="<?php echo APP_URL; ?>app/views/img/2-1.png" alt="Logo" style="width: 40px;">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,19 +20,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>utentePrincipale/">Inicio</a>
+                <a class="nav-link" href="<?php echo APP_URL; ?>utentePrincipale/nav=nav2">Inicio</a>
             </li> 
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>utenteLibri/">Libros</a>
+                <a class="nav-link" href="<?php echo APP_URL; ?>utenteLibri/nav=nav2">Libros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>utenteRegolamento/">Reglamento</a>
+                <a class="nav-link" href="<?php echo APP_URL; ?>utenteRegolamento/nav=nav2">Reglamento</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>profilo/">Perfil</a>
+                <a class="nav-link" href="<?php echo APP_URL; ?>profilo/nav=nav2">Perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>profilo/">Perfil</a>
+                <a class="nav-link" href="<?php echo APP_URL; ?>profilo/nav=nav2">Perfil</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="./img/st,small,507x507-pad,600x600,f8f8f8.jpg">.</a>

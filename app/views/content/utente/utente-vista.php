@@ -1,104 +1,193 @@
-    <link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/profilo.css">
+
+<link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/libri.css">
+
     <div class="d-flex flex-column min-vh-100">
-        <!-- header -->
-        <header class="header py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="text-center">Perfil del Usuario</h1>
-                    </div>
+    
+       
+
+    <div class="d-flex flex-column min-vh-100">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="d-flex">
+                        <input class="form-control me-2 flex-grow-1" type="search" placeholder="Buscar libros" aria-label="Buscar">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
                 </div>
             </div>
-        </header>
-
-        <!-- nav -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="<?php echo APP_URL; ?>principale/">Inicio</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>libri/">Libros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>regolamento/">Reglamento</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>cerrarSesion/">Cerrar Sesión</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        </div>
 
         <!-- contenido -->
         <main class="container mt-4 flex-fill">
             <div class="row">
-                <div class="col-md-4">
-                    <!-- Perfil del usuario -->
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img src="<?php echo APP_URL; ?>app/views/img/avatar.png" class="rounded-circle img-fluid" alt="Avatar" style="width: 150px;">
-                            <h4 class="mt-3"><?php echo $usuario->nombre; ?></h4>
-                            <p class="text-muted"><?php echo $usuario->email; ?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <!-- Información del usuario -->
+                <!-- FILTROS -->
+                <div class="col-md-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Información del Usuario</h5>
+                            <h5 class="card-title">Filtros</h5>
                             <form>
-                                <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" value="<?php echo $usuario->nombre; ?>">
+                                <div class="mb-3">
+                                    <label for="filter-author" class="form-label">Ordenar por Autor</label>
+                                    <select class="form-select" id="filter-author">
+                                        <option>A - Z</option>
+                                        <option>Z - A</option>
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" value="<?php echo $usuario->email; ?>">
+                                <div class="mb-3">
+                                    <label for="filter-category" class="form-label">Categoría</label>
+                                    <select class="form-select" id="filter-category">
+                                        <option>Ficción</option>
+                                        <option>No Ficción</option>
+                                        <option>Biografía</option>
+                                        <option>Infantil</option>
+                                        <option>Misterio</option>
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="telefono">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telefono" value="<?php echo $usuario->telefono; ?>">
+                                <div class="mb-3">
+                                    <label for="filter-year" class="form-label">Año de Publicación</label>
+                                    <select class="form-select" id="filter-year">
+                                        <option>Más recientes primero</option>
+                                        <option>Más antiguos primero</option>
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="direccion">Dirección</label>
-                                    <input type="text" class="form-control" id="direccion" value="<?php echo $usuario->direccion; ?>">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Actualizar Información</button>
+                                <button type="submit" class="btn btn-primary w-100">Aplicar Filtros</button>
                             </form>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Historial de reservas -->
-                    <div class="card mt-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Historial de Reservas</h5>
-                            <ul class="list-group list-group-flush">
-                                <!-- Ejemplo de una reserva -->
-                                <li class="list-group-item">
-                                    <strong>Título del Libro:</strong> Ejemplo de Libro 1<br>
-                                    <strong>Fecha de Reserva:</strong> 01/01/2024<br>
-                                    <strong>Estado:</strong> Pendiente
-                                </li>
-                                <!-- Añadir más reservas aquí -->
-                            </ul>
+                <!-- grid de libros -->
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-3 mb-4">
+                            <div class="card book-card">
+                                <div class="card-img-wrapper">
+                                    <img src="<?php echo APP_URL; ?>app/views/img/2-1.png" class="card-img-top" alt="Título del libro">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Título del Libro 1</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-4">
+                            <div class="card book-card">
+                                <div class="card-img-wrapper">
+                                    <img src="<?php echo APP_URL; ?>app/views/img/GJ7X1mlaMAA0GUJ.jpg" class="card-img-top" alt="Título del libro">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Título del Libro 2</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-4">
+                            <div class="card book-card">
+                                <div class="card-img-wrapper">
+                                    <img src="<?php echo APP_URL; ?>app/views/img/GLJZ4PpW0AAM8z3.jpg" class="card-img-top" alt="Título del libro">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Título del Libro 3</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-4">
+                            <div class="card book-card">
+                                <div class="card-img-wrapper">
+                                    <img src="<?php echo APP_URL; ?>app/views/img/GNbG8Y9X0AAxTXu.png" class="card-img-top" alt="Título del libro">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Título del Libro 4</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-4">
+                            <div class="card book-card">
+                                <div class="card-img-wrapper">
+                                    <img src="<?php echo APP_URL; ?>app/views/img/GNfJzMdWUAAWUms.jpg" class="card-img-top" alt="Título del libro">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Título del Libro 5</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-4">
+                            <div class="card book-card">
+                                <div class="card-img-wrapper">
+                                    <img src="<?php echo APP_URL; ?>app/views/img/GNU3gtyWAAAyKOl.jpg" class="card-img-top" alt="Título del libro">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Título del Libro 6</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-4">
+                            <div class="card book-card">
+                                <div class="card-img-wrapper">
+                                    <img src="<?php echo APP_URL; ?>app/views/img/rcecexz50rk71.jpg" class="card-img-top" alt="Título del libro">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Título del Libro 7</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 mb-4">
+                            <div class="card book-card">
+                                <div class="card-img-wrapper">
+                                    <img src="<?php echo APP_URL; ?>app/views/img/Sin_título.jpg" class="card-img-top" alt="Título del libro">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Título del Libro 8</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
 
-        <!-- footer -->
-        <footer class="footer mt-auto py-3">
-            <div class="container">
-                <p class="text-center">&copy; 2024 Biblioteca Virtual. Todos los derechos reservados.</p>
+        <!-- Modal -->
+        <div class="modal fade" id="bookModal1" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookModalLabel">Título del Libro 1</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Autor: John Doe</p>
+                        <p>Descripción: Una descripción breve del libro.</p>
+                        <button type="button" class="btn btn-success">Reservar</button>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </div>

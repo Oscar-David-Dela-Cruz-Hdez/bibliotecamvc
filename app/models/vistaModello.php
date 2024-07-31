@@ -1,35 +1,22 @@
 <?php
-	namespace app\models;
+namespace app\models;
 
-	class vistaModello{
+class vistaModello {
 
-		protected function obtenerVistasModelo($vista, $tipoDeUsuario = 'publico'){
+    public function obtenerVistasModelo($vista) {
+        // Lista de vistas válidas en la aplicación
+        $listaBlanca = ["iniziaSessione", "documentazione", "libri", "regolamento", "profilo", "utentePrincipale", "utenteLibri", "utenteRegolamento", "principale"];
+        $rutaBase = "./app/views/content/";
 
-			$listaBlanca=["iniziaSessione","documentazione","libri","regolamento","profilo","utentePrincipale","bibliLibro","bibliAutor","bibliCategoria","bibliSubcategoria","bibliPrincipale"];
-			$rutaUsuario = "./app/views/content/";
-
-			if ($tipoDeUsuario == 'admin') {
-				$rutaUsuario .= "admin/";
-			} elseif ($tipoDeUsuario == 'bibliotecario') {
-				$rutaUsuario .= "bibliotecario/";
-			}	elseif ($tipoDeUsuario == 'utente') {
-				$rutaUsuario .= "utente/";
-			}  else {
-				$rutaUsuario .= "public/";
-			}
-
-			if (in_array($vista, $listaBlanca)) {
-				if (is_file($rutaUsuario . $vista . "-vista.php")) {
-					$contenido = $rutaUsuario . $vista . "-vista.php";
-				} else {
-					$contenido = "404";
-				}
-			} elseif ($vista == "principale" || $vista == "index") {
-				$contenido = "principale";
-			} else {
-				$contenido = "404";
-			}
-			return $contenido;
-		}
-
-	}
+        if (in_array($vista, $listaBlanca)) {
+            if (is_file($rutaBase . $vista . "-vista.php")) {
+                $contenido = $rutaBase . $vista . "-vista.php";
+            } else {
+                $contenido = $rutaBase . "404-vista.php";
+            }
+        } else {
+            $contenido = $rutaBase . "404-vista.php";
+        }
+        return $contenido;
+    }
+}

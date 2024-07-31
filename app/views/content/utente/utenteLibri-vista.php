@@ -3,46 +3,15 @@
 
     <div class="d-flex flex-column min-vh-100">
     
-        <!-- header -->
-        <header class="header py-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="text-center">Biblioteca Virtual</h1>
-                    </div>
-                </div>
-            </div>
-        </header>
+       
 
-        <!-- nav -->
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="index.html">
-                <img src="logo.png" alt="Logo" style="width: 40px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>utentePrincipale/">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>vicinioSessione/">Cerrar Sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?php echo APP_URL; ?>utenteRegolamento/">Reglamento</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
+    <div class="d-flex flex-column min-vh-100">
         <div class="container mt-3">
             <div class="row">
                 <div class="col-md-12">
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2 flex-grow-1" type="search" placeholder="Buscar libros" aria-label="Buscar">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    <form class="d-flex">
+                        <input class="form-control me-2 flex-grow-1" type="search" placeholder="Buscar libros" aria-label="Buscar">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
@@ -57,16 +26,16 @@
                         <div class="card-body">
                             <h5 class="card-title">Filtros</h5>
                             <form>
-                                <div class="form-group">
-                                    <label for="filter-author">Ordenar por Autor</label>
-                                    <select class="form-control" id="filter-author">
+                                <div class="mb-3">
+                                    <label for="filter-author" class="form-label">Ordenar por Autor</label>
+                                    <select class="form-select" id="filter-author">
                                         <option>A - Z</option>
                                         <option>Z - A</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="filter-category">Categoría</label>
-                                    <select class="form-control" id="filter-category">
+                                <div class="mb-3">
+                                    <label for="filter-category" class="form-label">Categoría</label>
+                                    <select class="form-select" id="filter-category">
                                         <option>Ficción</option>
                                         <option>No Ficción</option>
                                         <option>Biografía</option>
@@ -74,14 +43,14 @@
                                         <option>Misterio</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="filter-year">Año de Publicación</label>
-                                    <select class="form-control" id="filter-year">
+                                <div class="mb-3">
+                                    <label for="filter-year" class="form-label">Año de Publicación</label>
+                                    <select class="form-select" id="filter-year">
                                         <option>Más recientes primero</option>
                                         <option>Más antiguos primero</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-block">Aplicar Filtros</button>
+                                <button type="submit" class="btn btn-primary w-100">Aplicar Filtros</button>
                             </form>
                         </div>
                     </div>
@@ -97,9 +66,13 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Título del Libro 1</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3 mb-4">
                             <div class="card book-card">
                                 <div class="card-img-wrapper">
@@ -107,9 +80,13 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Título del Libro 2</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3 mb-4">
                             <div class="card book-card">
                                 <div class="card-img-wrapper">
@@ -117,9 +94,13 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Título del Libro 3</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3 mb-4">
                             <div class="card book-card">
                                 <div class="card-img-wrapper">
@@ -127,9 +108,13 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Título del Libro 4</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3 mb-4">
                             <div class="card book-card">
                                 <div class="card-img-wrapper">
@@ -137,9 +122,13 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Título del Libro 5</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3 mb-4">
                             <div class="card book-card">
                                 <div class="card-img-wrapper">
@@ -147,9 +136,13 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Título del Libro 6</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3 mb-4">
                             <div class="card book-card">
                                 <div class="card-img-wrapper">
@@ -157,9 +150,13 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Título del Libro 7</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-3 mb-4">
                             <div class="card book-card">
                                 <div class="card-img-wrapper">
@@ -167,6 +164,9 @@
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">Título del Libro 8</h5>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                        Ver Detalles
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -175,10 +175,19 @@
             </div>
         </main>
 
-        <!-- footer -->
-        <footer class="footer mt-auto py-3">
-            <div class="container">
-                <p class="text-center">&copy; 2024 Biblioteca Virtual. Todos los derechos reservados.</p>
+        <!-- Modal -->
+        <div class="modal fade" id="bookModal1" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookModalLabel">Título del Libro 1</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Autor: John Doe</p>
+                        <p>Descripción: Una descripción breve del libro.</p>
+                        <button type="button" class="btn btn-success">Reservar</button>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </div>
+        </div>
