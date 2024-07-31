@@ -24,12 +24,7 @@
             </div>
         </main>
 
-        <!-- footer -->
-        <footer class="footer mt-auto py-3">
-            <div class="container">
-                <p class="text-center">&copy; 2024 Biblioteca Virtual. Todos los derechos reservados.</p>
-            </div>
-        </footer>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

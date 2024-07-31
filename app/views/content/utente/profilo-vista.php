@@ -82,12 +82,7 @@
             </div>
         </main>
 
-        <!-- footer -->
-        <footer class="footer mt-auto py-3">
-            <div class="container">
-                <p class="text-center">&copy; 2024 Biblioteca Virtual. Todos los derechos reservados.</p>
-            </div>
-        </footer>
+       
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

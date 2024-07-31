@@ -14,7 +14,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
 
 //no muevan esta wea porfa  aaaaaaaaaaaaaaaaaaaaaaaAAAAAAAAAAAAAAAAAAAAA
 $url = isset($_GET['views']) ? explode("/", $_GET['views']) : ["principale"];
-$nav = isset($_GET['nav']) ? $_GET['nav'] : "nav2"; // Determina el nav actual
+$nav = isset($_GET['nav']) ? $_GET['nav'] : "nav1"; // Determina el nav actual
 $vistaControllore = new vistaControllore();
 $vista = $vistaControllore->obtenerVistasControlador($url[0], $nav);
 
