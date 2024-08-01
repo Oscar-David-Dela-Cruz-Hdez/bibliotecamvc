@@ -5,7 +5,7 @@ use app\models\Conexion;
 use PDO;
 use PDOException;
 
-class Usuario {
+class Registro {
     private $db;
 
     public function __construct() {
@@ -15,7 +15,7 @@ class Usuario {
     public function registrarUsuario($username, $name, $lastname, $lastname2, $email, $password) {
         try {
             $query = "CALL InsertarCliente(:username, :name, :lastname, :lastname2, :email, :password, :imgusuario, :idrol)";
-            $stmt = $this->db->getDBH()->prepare($query); /*CHEPHINA aqui se usa la funcion publica de  conexion*/
+            $stmt = $this->db->getDBH()->prepare($query);
 
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':name', $name);

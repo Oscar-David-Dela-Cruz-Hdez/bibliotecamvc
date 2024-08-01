@@ -4,20 +4,40 @@ require_once "./config/applicazione.php";
 require_once "./autoload.php";
 
 use app\controllers\vistaControllore;
+use app\models\Registro;
 
-//  registros de usuarios
+// Inicializar el controlador de usuario
+$usuarioController = new \app\controllers\UsuarioController();
+
+// Obtén el rol del usuario (ejemplo usando sesión)
+session_start();
+$idrol = $_SESSION['idrol'] ?? null;
+
+// Determina el nav basado en el rol
+switch ($idrol) {
+    case 1:
+        $nav = "nav2"; // Usuario
+        break;
+    case 2:
+        $nav = "nav3"; // Bibliotecario
+        break;
+    case 3:
+        $nav = "nav4"; // Admin
+        break;
+    default:
+        $nav = "nav1"; // No registrado
+}
+
+// Manejo de registros de usuarios
 if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
-    $usuarioController = new \app\controllers\UsuarioController();
     $usuarioController->registrarUsuario();
     exit();
 }
 
-//no muevan esta wea porfa  aaaaaaaaaaaaaaaaaaaaaaaAAAAAAAAAAAAAAAAAAAAA
+// Determinar la vista y el archivo de navegación
 $url = isset($_GET['views']) ? explode("/", $_GET['views']) : ["principale"];
-$nav = isset($_GET['nav']) ? $_GET['nav'] : "nav1"; // Determina el nav actual
 $vistaControllore = new vistaControllore();
 $vista = $vistaControllore->obtenerVistasControlador($url[0], $nav);
-
 
 if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
     header('Location: ' . APP_URL . 'iniziaSessione');

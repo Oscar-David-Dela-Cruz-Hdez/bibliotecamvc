@@ -36,7 +36,7 @@
                     <a class="nav-link" href="<?php echo APP_URL; ?>regolamento/?nav=nav1">Reglamento</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./img/st,small,507x507-pad,600x600,f8f8f8.jpg">.</a>
+                    <a class="nav-link" href="<?php echo APP_URL; ?>app/views/img/st,small,507x507-pad,600x600,f8f8f8.jpg">.</a>
                 </li>
             </ul>
         </div>

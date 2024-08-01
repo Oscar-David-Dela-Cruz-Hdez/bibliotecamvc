@@ -1,7 +1,7 @@
 <?php
 namespace app\controllers;
 
-use app\models\Usuario;
+use app\models\Registro;
 
 class UsuarioController {
     
@@ -14,16 +14,14 @@ class UsuarioController {
         $password = $_POST['password'];
         $password2 = $_POST['password2'];
 
-    
         if ($password !== $password2) {
             header('Location: ' . APP_URL . 'registro?error=password_mismatch');
             exit();
         }
 
-        // con esto ya cumplimos con la encriptacion de la contra, a menos que quieran hacerlo diferente
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-        $usuarioModel = new Usuario();
+        $usuarioModel = new Registro();
         $resultado = $usuarioModel->registrarUsuario(
             $username, $name, $lastname, $lastname2, $email, $hashedPassword
         );
