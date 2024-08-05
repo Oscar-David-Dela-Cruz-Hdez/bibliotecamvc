@@ -32,10 +32,8 @@
                 <a class="nav-link" href="<?php echo APP_URL; ?>profilo/nav=nav2">Perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>profilo/nav=nav2">Perfil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./img/st,small,507x507-pad,600x600,f8f8f8.jpg">.</a>
+            <a class="nav-link" href="<?php echo APP_URL; ?>?action=logout">Cerrar sesión</a>
+
             </li>
         </ul>
     </div>
