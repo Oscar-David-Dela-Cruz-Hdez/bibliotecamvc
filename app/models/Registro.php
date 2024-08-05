@@ -1,9 +1,7 @@
 <?php
 namespace app\models;
 
-use app\models\Conexion;
 use PDO;
-use PDOException;
 
 class Registro {
     private $db;
@@ -34,5 +32,17 @@ class Registro {
             return false;
         }
     }
+
+    public function getUsuarioPorCorreo($email) {
+        try {
+            $query = "CALL spLogin(:correo)";
+            $stmt = $this->db->getDBH()->prepare($query);
+            $stmt->bindParam(':correo', $email);
+            $stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch(PDOException $e) {
+            return false;
+        }
+    }
 }
-?>

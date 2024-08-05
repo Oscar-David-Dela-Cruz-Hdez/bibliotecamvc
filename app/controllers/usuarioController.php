@@ -4,7 +4,7 @@ namespace app\controllers;
 use app\models\Registro;
 
 class UsuarioController {
-    
+
     public function registrarUsuario() {
         $username = $_POST['username'];
         $name = $_POST['name'];
@@ -19,7 +19,8 @@ class UsuarioController {
             exit();
         }
 
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        // Usa SHA-512 para encriptar la contraseña
+        $hashedPassword = hash('sha512', $password);
 
         $usuarioModel = new Registro();
         $resultado = $usuarioModel->registrarUsuario(
@@ -34,5 +35,25 @@ class UsuarioController {
             exit();
         }
     }
+
+    public function loginUsuario() {
+        $email = $_POST['email'];
+        $providedPassword = $_POST['password'];
+
+        $usuarioModel = new Registro();
+        $user = $usuarioModel->getUsuarioPorCorreo($email);
+
+        if ($user) {
+            $storedHash = $user['vchContrasena'];
+            $providedHash = hash('sha512', $providedPassword);
+
+            if ($providedHash === $storedHash) {
+                echo "Contraseña correcta.";
+            } else {
+                echo "Contraseña incorrecta.";
+            }
+        } else {
+            echo "Correo electrónico no encontrado.";
+        }
+    }
 }
-?>
