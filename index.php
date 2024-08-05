@@ -17,27 +17,34 @@ if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
     $usuarioModel = new Usuario();
     $usuario = $usuarioModel->login($email);
 
-    if ($usuario && password_verify($password, $usuario['vchContrasena'])) {
-        $_SESSION['idrol'] = $usuario['idrol'];
-        $_SESSION['usuario'] = $usuario['vchUsuario'];
+    if ($usuario) {
+        $storedHash = $usuario['vchContrasena'];
+        $providedHash = hash('sha512', $password);
 
-        // Redirigir a la vista principal correspondiente al rol
-        switch ($usuario['idrol']) {
-            case 1:
-                header('Location: ' . APP_URL . 'utentePrincipale');
-                break;
-            case 2:
-                header('Location: ' . APP_URL . 'bibliGestion');
-                break;
-            case 3:
-                header('Location: ' . APP_URL . 'admPrincipale');
-                break;
-            default:
-                header('Location: ' . APP_URL);
+        if ($providedHash === $storedHash) {
+            $_SESSION['idrol'] = $usuario['idrol'];
+            $_SESSION['usuario'] = $usuario['vchUsuario'];
+
+            // Redirigir a la vista principal correspondiente al rol
+            switch ($usuario['idrol']) {
+                case 1:
+                    header('Location: ' . APP_URL . 'app/views/utente/utentePrincipale-vista.php');
+                    break;
+                case 2:
+                    header('Location: ' . APP_URL . 'app/views/bibliotecario/bibliGestion-vista.php');
+                    break;
+                case 3:
+                    header('Location: ' . APP_URL . 'app/views/admin/admPrincipale-vista.php');
+                    break;
+                default:
+                    header('Location: ' . APP_URL . 'app/views/public/principale-vista.php');
+            }
+            exit();
+        } else {
+            $loginError = "Credenciales incorrectas. Inténtalo de nuevo.";
         }
-        exit();
     } else {
-        $loginError = "Credenciales incorrectas. Inténtalo de nuevo.";
+        $loginError = "Correo electrónico no encontrado.";
     }
 }
 
