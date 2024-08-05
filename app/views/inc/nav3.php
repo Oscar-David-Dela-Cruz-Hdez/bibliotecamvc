@@ -47,7 +47,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>bibliPrincipale/">Inicio</a>
+                <a class="nav-link" href="<?php echo APP_URL; ?>bibliPrincipale/nav=nav3">Inicio</a>
             </li> 
         </ul>
         <ul class="navbar-nav">
@@ -57,10 +57,10 @@
                     Añadir Registros
                 </a>
                 <div class="dropdown-menu" aria-labelledby="addRecordsDropdown">
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliLibri/">Libros</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliSubcategoria/">Subcategoria</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliCategoria/">Categoria</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliAutor/">Autores</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliLibri/nav=nav3">Libros</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliSubcategoria/nav=nav3">Subcategoria</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliCategoria/nav=nav3">Categoria</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliAutor/nav=nav3">Autores</a>
                 </div>
             </li>
             <!-- Administrar Registros -->
@@ -69,10 +69,10 @@
                     Administrar Registros
                 </a>
                 <div class="dropdown-menu" aria-labelledby="manageRecordsDropdown">
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliLibri2/">admLibros</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliSubcategoria2/">AdmSubcategoria</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliCategoria2/">admCategoria</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliAutor2/">admAutores</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliLibri2/nav=nav3">admLibros</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliSubcategoria2/nav=nav3">AdmSubcategoria</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliCategoria2/nav=nav3">admCategoria</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliAutor2/nav=nav3">admAutores</a>
                 </div>
             </li>
         </ul>

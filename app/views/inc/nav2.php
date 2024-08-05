@@ -33,7 +33,6 @@
             </li>
             <li class="nav-item">
             <a class="nav-link" href="<?php echo APP_URL; ?>?action=logout">Cerrar sesión</a>
-
             </li>
         </ul>
     </div>
