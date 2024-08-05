@@ -41,17 +41,16 @@ class sessioneControllore {
             exit();
         }
     }
-
     public function logout() {
-        // Destruye la sesión actual
         session_start();
         session_unset();
         session_destroy();
     
-        // Redirige al usuario a la página principal pública
-        header('Location: ' . APP_URL . 'public/inizaSessione-vista.php');
+        // Redirige a la vista principal pública
+        header('Location: ' . APP_URL . 'principale');
         exit();
     }
+    
     
 }
 ?>
