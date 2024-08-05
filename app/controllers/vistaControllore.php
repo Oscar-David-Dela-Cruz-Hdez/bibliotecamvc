@@ -5,7 +5,7 @@ class vistaControllore {
     public function obtenerVistasControlador($vista, $nav) {
         $rutaBase = "./app/views/content/";
 
-        // Determinar la carpeta de vistas según el valor de $nav
+        
         switch ($nav) {
             case "nav1":
                 $vistaFolder = "public";
@@ -14,7 +14,7 @@ class vistaControllore {
                 $vistaFolder = "utente";
                 break;
             case "nav3":
-                $vistaFolder = "bibliotecario"; // Asegúrate de que esta carpeta existe
+                $vistaFolder = "bibliotecario"; 
                 break;
             case "nav4":
                 $vistaFolder = "admin";
