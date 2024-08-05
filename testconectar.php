@@ -8,5 +8,5 @@ $conexion = new Conexion();
 if ($conexion) {
     echo "Conexión exitosa!";
 } else {
-    echo "Error en la conexión.";
+    echo "Cconexion a base de datos error de conexion";
 }

@@ -15,15 +15,15 @@ if (session_status() == PHP_SESSION_NONE) {
                     <div class="card-body">
                         <h3 class="card-title text-center main-text">Inicio de Sesión</h3>
                         <form method="POST" action="<?php echo APP_URL; ?>index.php">
-                            <input type="hidden" name="action" value="login">
+                            <input type="hidden" name="action" value="iniciarSesion">
                             <div class="mb-3">
                                 <label for="email" class="form-label main-text">Correo Electrónico</label>
-                                <input type="email" name="correo" class="form-control" id="email" placeholder="Ingrese su correo electrónico" required>
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label main-text">Contraseña</label>
                                 <div class="input-group">
-                                    <input type="password" name="contrasena" class="form-control" id="password" placeholder="Ingrese su contraseña" required>
+                                    <input type="password" name="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required>
                                     <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('password')">
                                         <i class="fas fa-eye"></i>
                                     </button>

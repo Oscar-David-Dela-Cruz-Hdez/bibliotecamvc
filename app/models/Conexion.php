@@ -33,4 +33,3 @@ class Conexion {
         return $this->dbh;
     }
 }
-?>

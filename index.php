@@ -4,13 +4,44 @@ require_once "./config/applicazione.php";
 require_once "./autoload.php";
 
 use app\controllers\vistaControllore;
-use app\models\Registro;
+use app\models\Usuario;
 
-// Inicializar el controlador de usuario
-$usuarioController = new \app\controllers\UsuarioController();
-
-// Obtén el rol del usuario (ejemplo usando sesión)
+// Iniciar sesión
 session_start();
+
+// Manejo del inicio de sesión
+if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $usuarioModel = new Usuario();
+    $usuario = $usuarioModel->login($email);
+
+    if ($usuario && password_verify($password, $usuario['vchContrasena'])) {
+        $_SESSION['idrol'] = $usuario['idrol'];
+        $_SESSION['usuario'] = $usuario['vchUsuario'];
+
+        // Redirigir a la vista principal correspondiente al rol
+        switch ($usuario['idrol']) {
+            case 1:
+                header('Location: ' . APP_URL . 'utentePrincipale');
+                break;
+            case 2:
+                header('Location: ' . APP_URL . 'bibliGestion');
+                break;
+            case 3:
+                header('Location: ' . APP_URL . 'admPrincipale');
+                break;
+            default:
+                header('Location: ' . APP_URL);
+        }
+        exit();
+    } else {
+        $loginError = "Credenciales incorrectas. Inténtalo de nuevo.";
+    }
+}
+
+// Obtener el rol de la sesión
 $idrol = $_SESSION['idrol'] ?? null;
 
 // Determina el nav basado en el rol
@@ -30,6 +61,7 @@ switch ($idrol) {
 
 // Manejo de registros de usuarios
 if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
+    $usuarioController = new \app\controllers\UsuarioController();
     $usuarioController->registrarUsuario();
     exit();
 }
@@ -64,6 +96,9 @@ if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
         <!-- llama a las vistas -->
         <main class="container mt-5 flex-fill">
             <?php
+            if (isset($loginError)) {
+                echo "<div class='alert alert-danger'>$loginError</div>";
+            }
             if (file_exists($vista)) {
                 require_once $vista;
             } else {
