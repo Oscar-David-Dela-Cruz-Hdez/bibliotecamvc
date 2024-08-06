@@ -28,7 +28,6 @@ class Conexion {
             echo "Error en la conexión: " . $this->error;
         }
     }
-
     public function getDBH() {
         return $this->dbh;
     }
