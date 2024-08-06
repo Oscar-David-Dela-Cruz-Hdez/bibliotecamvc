@@ -1,4 +1,5 @@
 <?php
+// index.php
 
 require_once "./config/applicazione.php";
 require_once "./autoload.php";
@@ -9,6 +10,12 @@ use app\models\Usuario;
 // Iniciar sesión
 session_start();
 
+// Manejo del cierre de sesión
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    $sessionController = new \app\controllers\sessioneControllore();
+    $sessionController->logout();
+}
+
 // Manejo del inicio de sesión
 if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
     $email = $_POST['email'];
@@ -17,7 +24,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
     $usuarioModel = new Usuario();
     $usuario = $usuarioModel->login($email);
 
-    if ($usuario && password_verify($password, $usuario['vchContrasena'])) {
+    if ($usuario && hash('sha512', $password) === $usuario['vchContrasena']) {
         $_SESSION['idrol'] = $usuario['idrol'];
         $_SESSION['usuario'] = $usuario['vchUsuario'];
 
@@ -27,7 +34,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
                 header('Location: ' . APP_URL . 'utentePrincipale');
                 break;
             case 2:
-                header('Location: ' . APP_URL . 'bibliGestion');
+                header('Location: ' . APP_URL . 'bibliPrincipale');
                 break;
             case 3:
                 header('Location: ' . APP_URL . 'admPrincipale');
@@ -59,13 +66,6 @@ switch ($idrol) {
         $nav = "nav1"; // No registrado
 }
 
-// Manejo de registros de usuarios
-if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
-    $usuarioController = new \app\controllers\UsuarioController();
-    $usuarioController->registrarUsuario();
-    exit();
-}
-
 // Determinar la vista y el archivo de navegación
 $url = isset($_GET['views']) ? explode("/", $_GET['views']) : ["principale"];
 $vistaControllore = new vistaControllore();
@@ -78,9 +78,7 @@ if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
 ?>
 <!DOCTYPE html>
 <html lang="es">
-
 <?php require_once "./app/views/inc/testa.php"; ?>
-
 <body style="background: url('<?php echo APP_URL; ?>app/views/img/659155.jpg') no-repeat center / cover;">
     <div class="d-flex flex-column min-vh-100">
         <!-- header y nav -->
@@ -106,7 +104,6 @@ if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
             }
             ?>
         </main>
-
         <?php require_once "./app/views/inc/footer.php"; ?>
         <script src="<?php echo APP_URL; ?>app/views/js/cita.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

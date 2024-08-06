@@ -5,15 +5,23 @@ class vistaControllore {
     public function obtenerVistasControlador($vista, $nav) {
         $rutaBase = "./app/views/content/";
 
-        // io se que ise luego les explico 
-        if ($nav == "nav1") {
-            $vistaFolder = "public";
-        } elseif ($nav == "nav2") {
-            $vistaFolder = "utente";
-        } elseif ($nav == "nav3") {
-            $vistaFolder = "admin";
-        } else {
-            $vistaFolder = "public";
+        
+        switch ($nav) {
+            case "nav1":
+                $vistaFolder = "public";
+                break;
+            case "nav2":
+                $vistaFolder = "utente";
+                break;
+            case "nav3":
+                $vistaFolder = "bibliotecario"; 
+                break;
+            case "nav4":
+                $vistaFolder = "admin";
+                break;
+            default:
+                $vistaFolder = "public";
+                break;
         }
 
         $filePath = $rutaBase . $vistaFolder . "/" . $vista . "-vista.php";

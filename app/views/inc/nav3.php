@@ -47,7 +47,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo APP_URL; ?>bibliPrincipale/">Inicio</a>
+                <a class="nav-link" href="<?php echo APP_URL; ?>bibliPrincipale/nav=nav3">Inicio</a>
             </li> 
         </ul>
         <ul class="navbar-nav">
@@ -57,10 +57,10 @@
                     Añadir Registros
                 </a>
                 <div class="dropdown-menu" aria-labelledby="addRecordsDropdown">
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliLibri/">Libros</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliSubcategoria/">Subcategoria</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliCategoria/">Categoria</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliAutor/">Autores</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliLibri/nav=nav3">Libros</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliSubcategoria/nav=nav3">Subcategoria</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliCategoria/nav=nav3">Categoria</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliAutor/nav=nav3">Autores</a>
                 </div>
             </li>
             <!-- Administrar Registros -->
@@ -69,11 +69,16 @@
                     Administrar Registros
                 </a>
                 <div class="dropdown-menu" aria-labelledby="manageRecordsDropdown">
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admLibri/">admLibros</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admSubcategoria/">AdmSubcategoria</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admCategoria/">admCategoria</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admAutores/">admAutores</a>
+                    
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admLibri/nav=nav3">admLibros</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admSubcategoria/nav=nav3">AdmSubcategoria</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admCategoria/nav=nav3">admCategoria</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admAutores/nav=nav3">admAutores</a>
+
                 </div>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="<?php echo APP_URL; ?>?action=logout">Cerrar sesión</a>
             </li>
         </ul>
     </div>
