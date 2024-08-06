@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Virtual</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/principale.css">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/adminprincipal.css">
 </head>
 <body style="background: url('<?php echo APP_URL; ?>app/views/img/659155.jpg') no-repeat center / cover;">
     <div class="d-flex flex-column min-vh-100">

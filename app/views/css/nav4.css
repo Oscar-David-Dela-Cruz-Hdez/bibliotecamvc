@@ -1,3 +1,4 @@
+/* General Styles */
 html, body {
     height: 100%;
     margin: 0;
@@ -5,14 +6,7 @@ html, body {
     background-color: #FFFFFF;
 }
 
-.bg-light {
-    background-color: #F5F5F5 !important;
-}
-
-.text-center {
-    color: #FFFFFF;
-}
-
+/* Navbar (nav4) Styles */
 .navbar, .header {
     background-color: rgba(0, 123, 255, 0.4); 
 }
@@ -32,8 +26,24 @@ html, body {
     font-size: larger;
     color: #e6b800 !important; 
 }
-.navbar-nav {
-    margin-left: auto; /* Alinea los enlaces a la derecha */
+
+/* Footer Styles */
+.footer {
+    border-top: 1px solid #ddd;
+    background-color: rgba(245, 245, 245, 0.4); /* el .4 o sea lo último, es la opacidad */
+}
+
+.footer p {
+    color: #4A4A4A;
+}
+
+/* Additional Classes */
+.bg-light {
+    background-color: #F5F5F5 !important;
+}
+
+.text-center {
+    color: #FFFFFF;
 }
 
 .book-card {
@@ -73,15 +83,6 @@ html, body {
 
 .book-card p {
     font-size: 1em;
-    color: #4A4A4A;
-}
-
-.footer {
-    border-top: 1px solid #ddd;
-    background-color: rgba(245, 245, 245, 0.4); /* el .4 o sea lo último, es la opacidad dx */
-}
-
-.footer p {
     color: #4A4A4A;
 }
 
