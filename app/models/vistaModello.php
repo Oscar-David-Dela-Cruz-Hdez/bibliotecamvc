@@ -5,7 +5,7 @@ class vistaModello {
 
     public function obtenerVistasModelo($vista) {
         // Lista de vistas válidas en la aplicación
-        $listaBlanca = ["iniziaSessione", "documentazione", "libri", "regolamento", "profilo", "utentePrincipale", "utenteLibri", "utenteRegolamento", "principale"];
+        $listaBlanca = ["iniziaSessione", "documentazione", "libri", "regolamento", "profilo", "utentePrincipale", "utenteLibri", "utenteRegolamento", "principale","admAutores","admCategoria","admSubcategoria","admLibri"];
         $rutaBase = "./app/views/content/";
 
         if (in_array($vista, $listaBlanca)) {

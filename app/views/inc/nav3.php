@@ -69,10 +69,12 @@
                     Administrar Registros
                 </a>
                 <div class="dropdown-menu" aria-labelledby="manageRecordsDropdown">
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliLibri2/nav=nav3">admLibros</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliSubcategoria2/nav=nav3">AdmSubcategoria</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliCategoria2/nav=nav3">admCategoria</a>
-                    <a class="dropdown-item" href="<?php echo APP_URL; ?>bibliAutor2/nav=nav3">admAutores</a>
+                    
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admLibri/nav=nav3">admLibros</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admSubcategoria/nav=nav3">AdmSubcategoria</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admCategoria/nav=nav3">admCategoria</a>
+                    <a class="dropdown-item" href="<?php echo APP_URL; ?>admAutores/nav=nav3">admAutores</a>
+
                 </div>
             </li>
             <li class="nav-item">
