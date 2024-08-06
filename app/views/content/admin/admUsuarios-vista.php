@@ -6,12 +6,13 @@
     <title>Administrar Usuarios</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/adminusuarios.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/admUsuarios.css">
 </head>
 <body>
-
     <!-- Main Content -->
     <div class="container mt-5">
+        <h1 class="mb-4">Administrar Usuarios</h1>
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
                 <tr>
@@ -46,7 +47,6 @@
             </tbody>
         </table>
     </div>
-
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

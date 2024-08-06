@@ -1,16 +1,24 @@
 <?php
-// Modelo AdmUsuario.php
-class AdmUsuario {
-    private $pdo;
+namespace app\models;
 
-    public function __construct($pdo) {
-        $this->pdo = $pdo;
+require_once __DIR__ . '/Conexion.php';
+
+class AdmUsuario {
+    private $dbh;
+
+    public function __construct() {
+        $this->dbh = (new Conexion())->getDBH();
     }
 
     public function obtenerUsuarios() {
-        $sql = 'SELECT * FROM tblusuarios';
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $stmt = $this->dbh->prepare("SELECT * FROM tblusuarios");
+            $stmt->execute();
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            echo "Error al obtener usuarios: " . $e->getMessage();
+            return [];
+        }
     }
 }
+?>

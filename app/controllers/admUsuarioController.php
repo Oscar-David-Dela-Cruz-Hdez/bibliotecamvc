@@ -1,15 +1,19 @@
 <?php
 namespace app\controllers;
 
-use app\models\admUsuario;
+use app\models\AdmUsuario;
 
-class AdminUsuarioController {
-    public function mostrarUsuarios() {
-        // Crear una instancia del modelo
-        $adminUsuarioModel = new AdminUsuario();
-        // Obtener todos los usuarios
-        $usuarios = $adminUsuarioModel->obtenerUsuarios();
-        // Incluir la vista y pasarle los datos
-        require_once "./app/views/content/admin/admUsuarios-vista.php";
+class AdmUsuarioController {
+    private $admUsuarioModel;
+
+    public function __construct() {
+        $this->admUsuarioModel = new AdmUsuario();
+    }
+
+    public function index() {
+        // Obtener la lista de usuarios
+        $usuarios = $this->admUsuarioModel->obtenerUsuarios();
+        // Incluir la vista y pasar los datos
+        require_once 'app/views/admin/admUsuarios-vista.php';
     }
 }
