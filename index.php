@@ -69,10 +69,10 @@ $idrol = $_SESSION['idrol'] ?? null;
 // Determina el nav basado en el rol
 switch ($idrol) {
     case 1:
-        $nav = "nav2"; // Usuario
+        $nav = "nav3"; // Usuario
         break;
     case 2:
-        $nav = "nav3"; // Bibliotecario
+        $nav = "nav2"; // Bibliotecario
         break;
     case 3:
         $nav = "nav4"; // Admin
@@ -87,7 +87,7 @@ if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
 }
 
 // Determinar la vista y el archivo de navegación
-$url = isset($_GET['views']) ? explode("/", $_GET['views']) : ["principale"];
+$url = isset($_GET['views']) ? explode("/", $_GET['views']) : ["bibliPrincipale"];
 $vistaControllore = new vistaControllore();
 $vista = $vistaControllore->obtenerVistasControlador($url[0], $nav);
 
