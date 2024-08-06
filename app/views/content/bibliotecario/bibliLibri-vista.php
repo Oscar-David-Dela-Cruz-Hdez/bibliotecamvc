@@ -44,6 +44,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         </div>
     </main>
 
@@ -52,3 +53,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+=======
+        </main>
+    </div>
+>>>>>>> 84f25c0004bbb716eddc64264a346367af89c549
