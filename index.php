@@ -32,9 +32,11 @@ if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
         switch ($usuario['idrol']) {
             case 1:
                 header('Location: ' . APP_URL . 'utentePrincipale');
+                
                 break;
             case 2:
                 header('Location: ' . APP_URL . 'bibliPrincipale');
+              
                 break;
             case 3:
                 header('Location: ' . APP_URL . 'admPrincipale');

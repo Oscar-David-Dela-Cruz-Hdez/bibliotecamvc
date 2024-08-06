@@ -1,10 +1,13 @@
-
-<link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/libri.css">
-
-    <div class="d-flex flex-column min-vh-100">
-    
-       
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Virtual - Libros</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/libri.css">
+</head>
+<body>
     <div class="d-flex flex-column min-vh-100">
         <div class="container mt-3">
             <div class="row">
@@ -29,8 +32,8 @@
                                 <div class="mb-3">
                                     <label for="filter-author" class="form-label">Ordenar por Autor</label>
                                     <select class="form-select" id="filter-author">
-                                        <option>A - Z</option>
-                                        <option>Z - A</option>
+                                        <option value="A-Z">A - Z</option>
+                                        <option value="Z-A">Z - A</option>
                                     </select>
                                 </div>
                                 <div class="mb-3">
@@ -59,11 +62,10 @@
                 <!-- grid de libros -->
                 <div class="col-md-9">
                     <div class="row">
+                        <!-- Ejemplo de un libro -->
                         <div class="col-md-3 mb-4">
                             <div class="card book-card">
-                                <div class="card-img-wrapper">
-                                    <img src="<?php echo APP_URL; ?>app/views/img/2-1.png" class="card-img-top" alt="Título del libro">
-                                </div>
+                                <img src="<?php echo APP_URL; ?>app/views/img/2-1.png" class="card-img-top" alt="Título del libro">
                                 <div class="card-body">
                                     <h5 class="card-title">Título del Libro 1</h5>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
@@ -73,103 +75,21 @@
                             </div>
                         </div>
 
+                        <!-- Repite el bloque de abajo para cada libro -->
                         <div class="col-md-3 mb-4">
                             <div class="card book-card">
-                                <div class="card-img-wrapper">
-                                    <img src="<?php echo APP_URL; ?>app/views/img/GJ7X1mlaMAA0GUJ.jpg" class="card-img-top" alt="Título del libro">
-                                </div>
+                                <img src="<?php echo APP_URL; ?>app/views/img/GJ7X1mlaMAA0GUJ.jpg" class="card-img-top" alt="Título del libro">
                                 <div class="card-body">
                                     <h5 class="card-title">Título del Libro 2</h5>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal2">
                                         Ver Detalles
                                     </button>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-3 mb-4">
-                            <div class="card book-card">
-                                <div class="card-img-wrapper">
-                                    <img src="<?php echo APP_URL; ?>app/views/img/GLJZ4PpW0AAM8z3.jpg" class="card-img-top" alt="Título del libro">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Título del Libro 3</h5>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
-                                        Ver Detalles
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Agregar más tarjetas de libros según sea necesario -->
 
-                        <div class="col-md-3 mb-4">
-                            <div class="card book-card">
-                                <div class="card-img-wrapper">
-                                    <img src="<?php echo APP_URL; ?>app/views/img/GNbG8Y9X0AAxTXu.png" class="card-img-top" alt="Título del libro">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Título del Libro 4</h5>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
-                                        Ver Detalles
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-4">
-                            <div class="card book-card">
-                                <div class="card-img-wrapper">
-                                    <img src="<?php echo APP_URL; ?>app/views/img/GNfJzMdWUAAWUms.jpg" class="card-img-top" alt="Título del libro">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Título del Libro 5</h5>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
-                                        Ver Detalles
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-4">
-                            <div class="card book-card">
-                                <div class="card-img-wrapper">
-                                    <img src="<?php echo APP_URL; ?>app/views/img/GNU3gtyWAAAyKOl.jpg" class="card-img-top" alt="Título del libro">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Título del Libro 6</h5>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
-                                        Ver Detalles
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-4">
-                            <div class="card book-card">
-                                <div class="card-img-wrapper">
-                                    <img src="<?php echo APP_URL; ?>app/views/img/rcecexz50rk71.jpg" class="card-img-top" alt="Título del libro">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Título del Libro 7</h5>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
-                                        Ver Detalles
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 mb-4">
-                            <div class="card book-card">
-                                <div class="card-img-wrapper">
-                                    <img src="<?php echo APP_URL; ?>app/views/img/Sin_título.jpg" class="card-img-top" alt="Título del libro">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Título del Libro 8</h5>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookModal1">
-                                        Ver Detalles
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -191,3 +111,10 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

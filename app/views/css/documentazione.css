@@ -1,21 +1,15 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: url('/app/views/img/659155.jpg') no-repeat center / cover;
-    background-color: #FFFFFF;
-}
+
 
 .bg-light {
     background-color: #F5F5F5 !important;
 }
 
 .text-center h1, .text-center p {
-    color: #FFFFFF;
+    color: #d9c917;
 }
 
 .navbar, .header {
-    background-color: rgba(0, 123, 255, 0.4); /* el .4 o sea lo ultimo, es la opacidad dx */
+    background-color: rgba(0, 123, 255, 0.4); /* el .4 o sea lo ultimo, es la opacidad */
 }
 
 .navbar-brand img {
@@ -32,7 +26,6 @@ html, body {
     color: #e0e0e0; 
 }
 
-
 .navbar-nav .nav-link,
 .navbar-nav .nav-link:hover {
     font-size: larger;
@@ -40,12 +33,12 @@ html, body {
 }
 
 .book-card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px 0;
-    background: url('/app/views/img/872784.jpg') no-repeat center / cover;
-    background-color: #FFFFFF;
+    border: 1px solid #cb3e3e;
+    background: url('/app/views/img/872784.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .book-card img {
@@ -55,12 +48,15 @@ html, body {
 }
 
 .footer {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #1219dc;
     background-color: rgba(245, 245, 245, 0.4); /* el .4 o sea lo ultimo, es la opacidad dx */
 }
 
 .footer p {
-    color: #4A4A4A;
+    color: #130786;
+
+
+
 }
 
 .btn-primary {
@@ -104,4 +100,10 @@ a {
 
 .card .card-title {
     color: #FFFFFF; /* Color blanco para el título de la tarjeta */
+}
+
+footer .redesociales {
+    color: #521b1b;
+    text-align: right;
+    padding: 10px;
 }
