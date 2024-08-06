@@ -5,6 +5,7 @@ require_once "./config/applicazione.php";
 require_once "./autoload.php";
 
 use app\controllers\vistaControllore;
+use app\controllers\UsuarioController;
 use app\models\Usuario;
 
 // Iniciar sesión
@@ -48,6 +49,12 @@ if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
     }
 }
 
+// Manejo del registro de usuario
+if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
+    $usuarioController = new UsuarioController();
+    $usuarioController->registrarUsuario();
+}
+
 // Obtener el rol de la sesión
 $idrol = $_SESSION['idrol'] ?? null;
 
@@ -66,15 +73,16 @@ switch ($idrol) {
         $nav = "nav1"; // No registrado
 }
 
+if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
+    header('Location: ' . APP_URL . 'iniziaSessione');
+    exit();
+}
+
 // Determinar la vista y el archivo de navegación
 $url = isset($_GET['views']) ? explode("/", $_GET['views']) : ["principale"];
 $vistaControllore = new vistaControllore();
 $vista = $vistaControllore->obtenerVistasControlador($url[0], $nav);
 
-if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
-    header('Location: ' . APP_URL . 'iniziaSessione');
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
