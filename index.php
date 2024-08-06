@@ -6,6 +6,7 @@ require_once "./autoload.php";
 
 use app\controllers\vistaControllore;
 use app\controllers\UsuarioController;
+use app\controllers\AdminUsuarioController;
 use app\models\Usuario;
 
 // Iniciar sesión
@@ -53,6 +54,13 @@ if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
 if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
     $usuarioController = new UsuarioController();
     $usuarioController->registrarUsuario();
+}
+
+// Manejo de la lista de usuarios
+if (isset($_GET['action']) && $_GET['action'] == 'mostrarUsuarios') {
+    $adminUsuarioController = new AdminUsuarioController();
+    $adminUsuarioController->mostrarUsuarios();
+    exit();
 }
 
 // Obtener el rol de la sesión
