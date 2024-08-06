@@ -2,7 +2,7 @@
 
 include_once 'Modelo/Conexion.php';
 
-class clsLibros extends clsConexion
+class clsCategoria extends clsConexion
 {
     private $db;
 
@@ -12,10 +12,18 @@ class clsLibros extends clsConexion
     }
 
     public function ConsultaCategoria() {
-        $sql = "CALL spConsultarCategoria();";
-        $stmt = $this->db->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $sql = "CALL spConsultarCategoria();";
+            $stmt = $this->db->query($sql);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            var_dump($result); // Agrega esto para depurar
+            return $result;
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage(); // Agrega esto para depurar
+        }
     }
+    
+    
 
     public function EliminarCategoria($idcategoria) {
         $sql = "CALL spEliminarCategoria(:idcategoria);";

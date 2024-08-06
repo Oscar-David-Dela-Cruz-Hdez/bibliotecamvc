@@ -5,8 +5,8 @@
   <table class="centered-table">
     <thead>
       <tr>
-        <th>id categoria</th>
-        <th>Categoria</th>
+        <th>id categoría</th>
+        <th>Categoría</th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +24,8 @@
               echo '</tr>';
               echo '</form>';
           }
+      } else {
+          echo '<tr><td colspan="3">No hay datos disponibles</td></tr>'; // Agrega esto para manejar el caso donde no hay datos
       } ?>
     </tbody>
   </table>
