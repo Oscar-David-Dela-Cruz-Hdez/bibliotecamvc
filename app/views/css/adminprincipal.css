@@ -1,8 +1,9 @@
-html, body {
+ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #FFFFFF;
+    background: url('/app/views/img/659155.jpg') no-repeat center / cover;
+   
 }
 
 .bg-light {
@@ -32,6 +33,7 @@ html, body {
     font-size: larger;
     color: #e6b800 !important; 
 }
+
 .navbar-nav {
     margin-left: auto; /* Alinea los enlaces a la derecha */
 }
@@ -52,7 +54,7 @@ html, body {
 
 .book-img-container {
     width: 100%;
-    height: 100px; /* Ajusta la altura de las imágenes según sea necesario */
+    height:0; /* Ajusta la altura de las imágenes según sea necesario */
     display: flex;
     align-items: center;
     justify-content: center;
