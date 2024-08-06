@@ -2,7 +2,7 @@
 // Modelo AdmUsuario.php
 class AdmUsuario {
     private $pdo;
-
+    
     public function __construct($pdo) {
         $this->pdo = $pdo;
     }

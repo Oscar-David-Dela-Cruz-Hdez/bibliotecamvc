@@ -16,28 +16,35 @@ class clsCategoria extends clsConexion
             $sql = "CALL spConsultarCategoria();";
             $stmt = $this->db->query($sql);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            var_dump($result); // Agrega esto para depurar
+            // Eliminar el var_dump después de confirmar que los datos son correctos
+            // var_dump($result);  
             return $result;
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage(); // Agrega esto para depurar
         }
     }
-    
-    
 
     public function EliminarCategoria($idcategoria) {
-        $sql = "CALL spEliminarCategoria(:idcategoria);";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':idcategoria', $idcategoria, PDO::PARAM_INT);
-        $stmt->execute();
+        try {
+            $sql = "CALL spEliminarCategoria(:idcategoria);";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':idcategoria', $idcategoria, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage(); // Agrega esto para depurar
+        }
     }
 
     public function ActualizarCategoria($idcategoria, $categorias) {
-        $sql = "CALL spActualizarCategoria(:idcategoria, :categorias);";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':idcategoria', $idcategoria, PDO::PARAM_INT);
-        $stmt->bindParam(':categorias', $categorias, PDO::PARAM_STR);
-        $stmt->execute();
-    }   
+        try {
+            $sql = "CALL spActualizarCategoria(:idcategoria, :categorias);";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':idcategoria', $idcategoria, PDO::PARAM_INT);
+            $stmt->bindParam(':categorias', $categorias, PDO::PARAM_STR);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage(); // Agrega esto para depurar
+        }
+    }
 }
 ?>
