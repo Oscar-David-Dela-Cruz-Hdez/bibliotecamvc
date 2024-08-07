@@ -26,24 +26,6 @@ class AdmUsuario {
         }
     }
 
-    public function insertarUsuario($usuario, $nombre, $ap, $am, $correo, $contrasena, $imgusuario, $idrol) {
-        try {
-            $stmt = $this->db->prepare("CALL InsertarCliente(:usuario, :nombre, :ap, :am, :correo, :contrasena, :imgusuario, :idrol)");
-            $stmt->bindParam(":usuario", $usuario);
-            $stmt->bindParam(":nombre", $nombre);
-            $stmt->bindParam(":ap", $ap);
-            $stmt->bindParam(":am", $am);
-            $stmt->bindParam(":correo", $correo);
-            $stmt->bindParam(":contrasena", $contrasena);
-            $stmt->bindParam(":imgusuario", $imgusuario);
-            $stmt->bindParam(":idrol", $idrol);
-            return $stmt->execute();
-        } catch (PDOException $e) {
-            // Manejo de errores: puedes loguear o mostrar el error para depuración
-            error_log("Error al insertar usuario: " . $e->getMessage());
-            return false;
-        }
-    }
 
     public function actualizarUsuario($idusuario, $usuario, $nombre, $ap, $am, $correo, $contrasena, $imgusuario, $idrol) {
         try {
