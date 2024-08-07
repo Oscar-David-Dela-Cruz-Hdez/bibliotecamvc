@@ -20,7 +20,7 @@ class vistaControllore {
                 $vistaFolder = "admin";
                 break;
             default:
-                $vistaFolder = "public";
+                $vistaFolder = "bibliotecario";
                 break;
         }
 

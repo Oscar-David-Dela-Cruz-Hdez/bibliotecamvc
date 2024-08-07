@@ -1,3 +1,5 @@
+
+
 <!-- app/views/includes/header.php -->
 <header class="header py-3">
     <div class="container">
@@ -34,6 +36,9 @@
             <li class="nav-item">
             <a class="nav-link" href="<?php echo APP_URL; ?>?action=logout">Cerrar sesión</a>
             </li>
+
         </ul>
     </div>
 </nav>
+
+  
