@@ -24,8 +24,10 @@
     .dropdown-menu {
         position: static; /* Asegura que el menú desplegable no se posicione de manera absoluta en pantallas grandes */
     }
-</style>
 
+    
+</style>
+<link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/princi.css">
 <!-- app/views/includes/header.php -->
 <header class="header py-3">
     <div class="container">
@@ -38,7 +40,8 @@
 </header>
 
 <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="<?php echo APP_URL; ?>bibliPrincipale/">
+<link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/libri.css">
+    <a class="navbar-brand" href="<?php echo APP_URL; ?>bibliPrincipale/nav=nav3">
         <img src="<?php echo APP_URL; ?>app/views/img/2-1.png" alt="Logo" style="width: 40px;">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

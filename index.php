@@ -6,7 +6,7 @@ require_once "./autoload.php";
 
 use app\controllers\vistaControllore;
 use app\controllers\UsuarioController;
-use app\controllers\AdminUsuarioController;
+use app\controllers\AdmUsuarioController;
 use app\models\Usuario;
 
 // Iniciar sesión
@@ -34,9 +34,11 @@ if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
         switch ($usuario['idrol']) {
             case 1:
                 header('Location: ' . APP_URL . 'utentePrincipale');
+                
                 break;
             case 2:
                 header('Location: ' . APP_URL . 'bibliPrincipale');
+              
                 break;
             case 3:
                 header('Location: ' . APP_URL . 'admPrincipale');
@@ -58,8 +60,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
 
 // Manejo de la lista de usuarios
 if (isset($_GET['action']) && $_GET['action'] == 'mostrarUsuarios') {
-    $adminUsuarioController = new AdminUsuarioController();
-    $adminUsuarioController->mostrarUsuarios();
+    $admUsuarioController = new AdmUsuarioController();
+    $admUsuarioController->mostrarUsuarios();
     exit();
 }
 
@@ -69,10 +71,10 @@ $idrol = $_SESSION['idrol'] ?? null;
 // Determina el nav basado en el rol
 switch ($idrol) {
     case 1:
-        $nav = "nav3"; // Usuario
+        $nav = "nav2"; // Usuario
         break;
     case 2:
-        $nav = "nav2"; // Bibliotecario
+        $nav = "nav3"; // Bibliotecario
         break;
     case 3:
         $nav = "nav4"; // Admin
@@ -87,7 +89,7 @@ if (isset($_GET['registro']) && $_GET['registro'] == 'success') {
 }
 
 // Determinar la vista y el archivo de navegación
-$url = isset($_GET['views']) ? explode("/", $_GET['views']) : ["bibliPrincipale"];
+$url = isset($_GET['views']) ? explode("/", $_GET['views']) : ["principale"];
 $vistaControllore = new vistaControllore();
 $vista = $vistaControllore->obtenerVistasControlador($url[0], $nav);
 

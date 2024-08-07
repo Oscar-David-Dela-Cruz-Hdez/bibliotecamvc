@@ -1,6 +1,6 @@
 <?php
 
-include_once('Modelo/bibliLibro.php');
+include_once('models/bibliLibro.php');
 
 class bibliLibroController
 {

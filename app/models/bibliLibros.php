@@ -1,8 +1,9 @@
 <?php
+use app\models\Conexion;
 
-include_once 'Modelo/Conexion.php';
+include_once 'models/Conexion.php';
 
-class bibliLibro extends clsConexion
+class bibliLibro extends Conexion
 {
     private $db;
 

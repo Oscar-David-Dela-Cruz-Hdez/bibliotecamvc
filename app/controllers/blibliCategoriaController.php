@@ -1,29 +1,28 @@
 <?php
 
-include_once('Modelo/bibliCategoria.php');
+include_once('models/bibliCategoria.php');
 
-class bibliCategoriaController
+class controladorCategoria
 {
-    // Método para manejar la inserción de una nueva categoría
-    public function agregarCategoria() {
-        // Crear una instancia del modelo
-        $categoriaModel = new bibliCategoria();
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Obtener el nombre de la categoría del formulario
-            $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : '';
-
-            if (!empty($nombre)) {
-                // Llamar al método del modelo para agregar la categoría
-                $categoriaModel->AgregarCategoria($nombre);
-            }
+    public function EliminaActualizaCategoria() {
+        $categoria = new bibliCategoria();
+    
+        if (isset($_POST['btnEliminar'])) {
+            $idcategoria = $_POST['txtidcategoria'];
+            $categoria->EliminarCategoria($idcategoria);
+        } elseif (isset($_POST['btnActualizar'])) {
+            $idcategoria = $_POST['txtidcategoria'];
+            $nombre = $_POST['txtCategoria'];
+            $categoria->ActualizarCategoria($idcategoria, $nombre);
+        } elseif (isset($_POST['btnAgregar'])) {
+            $nombreCategoria = $_POST['nombre'];
+            $categoria->AgregarCategoria($nombreCategoria);
         }
-
-        // Consultar todas las categorías después de agregar la nueva
-        $categorias = $categoriaModel->ConsultaCategorias();
-
-        // Incluir la vista para mostrar las categorías
-        include_once('bibliotecaMvc/app/views/content/bibliotecario/admCategorias-vista.php');
+    
+        $Consulta = $categoria->ConsultaCategorias();
+        var_dump($Consulta); // Para depurar
+    
+        include_once('bibliotecaMvc/app/views/content/bibliotecario/admCategoria-vista.php');
     }
 }
 ?>
