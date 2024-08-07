@@ -1,15 +1,33 @@
 <?php
-namespace app\controllers;
+
+require_once 'app/models/admUsuario.php';
 
 use app\models\admUsuario;
 
-class AdminUsuarioController {
+class admUsuarioController {
+    private $modelo;
+
+    public function __construct() {
+        $this->modelo = new admUsuario();
+    }
+
     public function mostrarUsuarios() {
-        // Crear una instancia del modelo
-        $adminUsuarioModel = new AdminUsuario();
-        // Obtener todos los usuarios
-        $usuarios = $adminUsuarioModel->obtenerUsuarios();
-        // Incluir la vista y pasarle los datos
-        require_once "./app/views/content/admin/admUsuarios-vista.php";
+        $usuarios = $this->modelo->obtenerUsuarios();
+        require 'app/views/content/admin/admUsuarios-vista.php';
+    }
+
+    public function agregarUsuario($data) {
+        $this->modelo->insertarUsuario($data['usuario'], $data['nombre'], $data['ap'], $data['am'], $data['correo'], $data['contrasena'], $data['imgusuario'], $data['idrol']);
+        header('Location: index.php?c=admUsuario&a=mostrarUsuarios');
+    }
+
+    public function editarUsuario($id, $data) {
+        $this->modelo->actualizarUsuario($id, $data['usuario'], $data['nombre'], $data['ap'], $data['am'], $data['correo'], $data['contrasena'], $data['imgusuario'], $data['idrol']);
+        header('Location: index.php?c=admUsuario&a=mostrarUsuarios');
+    }
+
+    public function eliminarUsuario($id) {
+        $this->modelo->eliminarUsuario($id);
+        header('Location: index.php?c=admUsuario&a=mostrarUsuarios');
     }
 }

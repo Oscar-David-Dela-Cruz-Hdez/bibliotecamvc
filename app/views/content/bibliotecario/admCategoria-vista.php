@@ -1,45 +1,38 @@
-<link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/documentazione.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+echo '<link rel="stylesheet" href="' . APP_URL . 'app/views/css/documentazione.css">';
+echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">';
 
-<div class="container mt-4">
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped text-center">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID Categoría</th>
-                    <th>Categoría</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (isset($Consulta) && !empty($Consulta)) { ?>
-                    <?php foreach ($Consulta as $categoria) { ?>
-                        <form action="/bibliotecaMvc/index?clase=controladorCategoria&metodo=EliminaActualizaCategoria" method="POST">
-                            <tr>
-                                <td>
-                                    <input type="text" name="txtidcategoria" value="<?php echo $categoria['idcategoria']; ?>" class="form-control" readonly>
-                                </td>
-                                <td>
-                                    <input type="text" name="txtCategoria" value="<?php echo $categoria['vchCategoria']; ?>" class="form-control">
-                                </td>
-                                <td>
-                                    <button type="submit" name="btnEliminar" value="btnEliminar" class="btn btn-danger me-2">
-                                        <i class="fas fa-trash-alt"></i> Eliminar
-                                    </button>
-                                    <button type="submit" name="btnActualizar" value="btnActualizar" class="btn btn-primary">
-                                        <i class="fas fa-edit"></i> Actualizar
-                                    </button>
-                                </td>
-                            </tr>
-                        </form>
-                    <?php } ?>
-                <?php } else { ?>
-                    <tr>
-                        <td colspan="3">No hay datos disponibles</td>
-                    </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
-</div>
+<form action="/bibliotecaMvc/index?clase=controladorCategoria&metodo=mostrarCategorias" method="POST">
 
+echo '<div class="container mt-4">';
+echo '<div class="table-responsive">';
+echo '<table class="table table-bordered table-hover table-striped text-center">';
+echo '<thead class="table-dark">';
+echo '<tr>';
+echo '<th>ID Categoría</th>';
+echo '<th>Categoría</th>';
+echo '<th>Acciones</th>';
+echo '</tr>';
+echo '</thead>';
+echo '<tbody>';
+
+while ($categoria = $Consulta->fetch_object()) {
+    echo '<form action="/bibliotecaMvc/index?clase=controladorCategoria&metodo=EliminaActualizaCategoria" method="POST">';
+    echo '<tr>';
+    echo '<td><input type="text" name="txtidcategoria" value="' . $categoria->idcategoria . '" class="form-control" readonly></td>';
+    echo '<td><input type="text" name="txtCategoria" value="' . $categoria->vchCategoria . '" class="form-control"></td>';
+    echo '<td>';
+    echo '<button type="submit" name="btnEliminar" value="btnEliminar" class="btn btn-danger me-2">';
+    echo '<i class="fas fa-trash-alt"></i> Eliminar';
+    echo '</button>';
+    echo '<button type="submit" name="btnActualizar" value="btnActualizar" class="btn btn-primary">';
+    echo '<i class="fas fa-edit"></i> Actualizar';
+    echo '</button>';
+    echo '</td>';
+    echo '</tr>';
+    echo '</form>';
+}
+
+echo '</tbody>';
+echo '</table>';
+echo '</div>';
+echo '</div>';

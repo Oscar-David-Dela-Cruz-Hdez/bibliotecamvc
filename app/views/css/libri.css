@@ -1,19 +1,11 @@
-html, body {
+body {
+    background: url('<?php echo APP_URL; ?>app/views/img/872784.jpg') no-repeat center center fixed;
+    background-size: cover;
     height: 100%;
     margin: 0;
     padding: 0;
-    background: url('/app/views/img/659155.jpg') no-repeat center / cover;
-    background-color: #FFFFFF;
-}
-
-.book-card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin: 10px 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background-color: #FFFFFF;
 }
 
 .card-img-wrapper {
@@ -32,21 +24,21 @@ html, body {
 }
 
 .footer {
-    border-top: 1px solid #ddd;
-    background-color: rgba(245, 245, 245, 0.4); /* el .4 o sea lo ultimo, es la opacidad dx */
+    border-top: 1px solid #7363b5;
+    background-color: rgba(245, 245, 245, 0.4);
     color: #4A4A4A;
 }
 
 .bg-light {
-    background-color: #F5F5F5 !important;
+    background-color: #d46d6d !important;
 }
 
 .text-center {
-    color: #FFFFFF;
+    color: #080505;
 }
 
 .navbar, .header {
-    background-color: rgba(0, 123, 255, 0.4); /* el .4 o sea lo ultimo, es la opacidad dx */
+    background-color: rgba(0, 123, 255, 0.4);
 }
 
 .navbar-brand img {
@@ -71,26 +63,26 @@ html, body {
 
 .btn-primary {
     background-color: #007BFF;
-    color: #FFFFFF;
+    color: #e371b9;
 }
 
 .btn-secondary {
-    background-color: #28A745;
-    color: #FFFFFF;
+    background-color: #dfb18f;
+    color: #1d1f1c;
 }
 
 .btn-warning {
     background-color: #FFC107;
-    color: #FFFFFF;
+    color: #a08989;
 }
 
 .btn-danger {
-    background-color: #DC3545;
-    color: #FFFFFF;
+    background-color: #c0dc35;
+    color: #17791c;
 }
 
 .main-text {
-    color: #000000;
+    color: #dccaca;
 }
 
 .secondary-text {
@@ -102,30 +94,12 @@ a {
 }
 
 .card {
-    background-color: #FFFFFF;
-    border: 1px solid #ddd;
+    background-color: #f7e3e3;
+    border: 1px solid #1d831b;
     border-radius: 5px;
     margin: 10px 0;
 }
 
 .card .card-title {
-    color: #FFFFFF; /* Color blanco para el título de la tarjeta */
+    color: #121111; /* Color blanco para el título de la tarjeta */
 }
-
-/*eso es del modal ese*/
-.modal-content {
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.modal-header {
-    border-bottom: none;
-
-}
-
-.modal-body p {
-    margin-bottom: 10px;
-
-}
-

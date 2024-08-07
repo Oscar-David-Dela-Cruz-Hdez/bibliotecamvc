@@ -1,12 +1,20 @@
-<link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/documentazione.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-<div class="d-flex flex-column min-vh-100">
-        <!-- contenido -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/documentazione.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="d-flex flex-column min-vh-100">
+        <!-- Contenido -->
         <main class="container mt-5 flex-fill">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="card">
+                    <div class="card shadow-lg">
                         <div class="card-body">
                             <h2 class="text-center">Registro</h2>
                             <form id="registroForm" method="POST" action="<?php echo APP_URL; ?>index.php?action=registrarUsuario">
@@ -63,4 +71,15 @@
         </main>
     </div>
 
-<script src="<?php echo APP_URL; ?>app/views/js/registro.js"></script>
+    <script src="<?php echo APP_URL; ?>app/views/js/registro.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            const type = field.getAttribute('type') === 'password' ? 'text' : 'password';
+            field.setAttribute('type', type);
+        }
+    </script>
+</body>
+</html>

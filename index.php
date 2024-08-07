@@ -6,7 +6,7 @@ require_once "./autoload.php";
 
 use app\controllers\vistaControllore;
 use app\controllers\UsuarioController;
-use app\controllers\AdminUsuarioController;
+use app\controllers\AdmUsuarioController;
 use app\models\Usuario;
 
 // Iniciar sesión
@@ -34,9 +34,11 @@ if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
         switch ($usuario['idrol']) {
             case 1:
                 header('Location: ' . APP_URL . 'utentePrincipale');
+                
                 break;
             case 2:
                 header('Location: ' . APP_URL . 'bibliPrincipale');
+              
                 break;
             case 3:
                 header('Location: ' . APP_URL . 'admPrincipale');
@@ -58,8 +60,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
 
 // Manejo de la lista de usuarios
 if (isset($_GET['action']) && $_GET['action'] == 'mostrarUsuarios') {
-    $adminUsuarioController = new AdminUsuarioController();
-    $adminUsuarioController->mostrarUsuarios();
+    $admUsuarioController = new AdmUsuarioController();
+    $admUsuarioController->mostrarUsuarios();
     exit();
 }
 

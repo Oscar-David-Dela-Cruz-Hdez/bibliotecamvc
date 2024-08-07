@@ -1,7 +1,14 @@
-<link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/profilo.css">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Usuario</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo APP_URL; ?>app/views/css/profilo.css">
+</head>
+<body>
     <div class="d-flex flex-column min-vh-100">
-
-
         <!-- contenido -->
         <main class="container mt-4 flex-fill">
             <div class="row">
@@ -21,45 +28,24 @@
                         <div class="card-body">
                             <h5 class="card-title">Información del Usuario</h5>
                             <form>
-                                <div class="form-group">
-                                    <label for="nombre">Nombre</label>
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre</label>
                                     <input type="text" class="form-control" id="nombre" value="Oscar David De la Cruz Hernandez">
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
                                     <input type="email" class="form-control" id="email" value="delacruzhernandezoscardavid@outlook.com">
                                 </div>
-                                <div class="form-group">
-                                    <label for="telefono">Teléfono</label>
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label">Teléfono</label>
                                     <input type="tel" class="form-control" id="telefono" value="7713387937">
                                 </div>
-                                <div class="form-group">
-                                    <label for="direccion">Dirección</label>
+                                <div class="mb-3">
+                                    <label for="direccion" class="form-label">Dirección</label>
                                     <input type="text" class="form-control" id="direccion" value="no lo pongo para evitar auto doxxeo">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Actualizar Información</button>
                             </form>
-<!--
-           <form>
-                                <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" value="?php echo $usuario->nombre; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" value="?php echo $usuario->email; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="telefono">Teléfono</label>
-                                    <input type="tel" class="form-control" id="telefono" value="?php echo $usuario->telefono; ?>">
-                                </div>
-                                <div class="form-group">
-                                    <label for="direccion">Dirección</label>
-                                    <input type="text" class="form-control" id="direccion" value="?php echo $usuario->direccion; ">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Actualizar Información</button>
-                            </form>                 
--->
                         </div>
                     </div>
 
@@ -81,10 +67,10 @@
                 </div>
             </div>
         </main>
-
-       
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
