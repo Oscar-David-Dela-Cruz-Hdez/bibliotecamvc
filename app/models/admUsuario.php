@@ -1,24 +1,79 @@
 <?php
 namespace app\models;
 
-require_once __DIR__ . '/Conexion.php';
+require_once 'Conexion.php';
 
-class AdmUsuario {
-    private $dbh;
+use PDO;
+use PDOException;
+
+class admUsuario {
+    private $db;
 
     public function __construct() {
-        $this->dbh = (new Conexion())->getDBH();
+        $conexion = new Conexion();
+        $this->db = $conexion->getDBH();
     }
 
     public function obtenerUsuarios() {
         try {
-            $stmt = $this->dbh->prepare("SELECT * FROM tblusuarios");
+            $stmt = $this->db->prepare("CALL spConsultarUsuarios()");
             $stmt->execute();
-            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        } catch (\PDOException $e) {
-            echo "Error al obtener usuarios: " . $e->getMessage();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            // Manejo de errores: puedes loguear o mostrar el error para depuración
+            error_log("Error al obtener usuarios: " . $e->getMessage());
             return [];
         }
     }
+
+    public function insertarUsuario($usuario, $nombre, $ap, $am, $correo, $contrasena, $imgusuario, $idrol) {
+        try {
+            $stmt = $this->db->prepare("CALL InsertarCliente(:usuario, :nombre, :ap, :am, :correo, :contrasena, :imgusuario, :idrol)");
+            $stmt->bindParam(":usuario", $usuario);
+            $stmt->bindParam(":nombre", $nombre);
+            $stmt->bindParam(":ap", $ap);
+            $stmt->bindParam(":am", $am);
+            $stmt->bindParam(":correo", $correo);
+            $stmt->bindParam(":contrasena", $contrasena);
+            $stmt->bindParam(":imgusuario", $imgusuario);
+            $stmt->bindParam(":idrol", $idrol);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            // Manejo de errores: puedes loguear o mostrar el error para depuración
+            error_log("Error al insertar usuario: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function actualizarUsuario($idusuario, $usuario, $nombre, $ap, $am, $correo, $contrasena, $imgusuario, $idrol) {
+        try {
+            $stmt = $this->db->prepare("CALL spActualizarUsuario(:idusuario, :usuario, :nombre, :ap, :am, :correo, :contrasena, :imgusuario, :idrol)");
+            $stmt->bindParam(":idusuario", $idusuario);
+            $stmt->bindParam(":usuario", $usuario);
+            $stmt->bindParam(":nombre", $nombre);
+            $stmt->bindParam(":ap", $ap);
+            $stmt->bindParam(":am", $am);
+            $stmt->bindParam(":correo", $correo);
+            $stmt->bindParam(":contrasena", $contrasena);
+            $stmt->bindParam(":imgusuario", $imgusuario);
+            $stmt->bindParam(":idrol", $idrol);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            // Manejo de errores: puedes loguear o mostrar el error para depuración
+            error_log("Error al actualizar usuario: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function eliminarUsuario($idusuario) {
+        try {
+            $stmt = $this->db->prepare("CALL spEliminarUsuario(:idusuario)");
+            $stmt->bindParam(":idusuario", $idusuario);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            // Manejo de errores: puedes loguear o mostrar el error para depuración
+            error_log("Error al eliminar usuario: " . $e->getMessage());
+            return false;
+        }
+    }
 }
-?>

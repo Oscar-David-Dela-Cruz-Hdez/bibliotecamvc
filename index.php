@@ -6,7 +6,7 @@ require_once "./autoload.php";
 
 use app\controllers\vistaControllore;
 use app\controllers\UsuarioController;
-use app\controllers\AdminUsuarioController;
+use app\controllers\AdmUsuarioController;
 use app\models\Usuario;
 
 // Iniciar sesión
