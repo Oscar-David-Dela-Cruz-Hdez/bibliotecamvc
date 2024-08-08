@@ -6,8 +6,8 @@ require_once "./autoload.php";
 
 use app\controllers\vistaControllore;
 use app\controllers\UsuarioController;
-use app\controllers\admUsuarioController;
 use app\models\Usuario;
+use app\controllers\admUsuarioController;
 
 // Iniciar sesión
 session_start();
@@ -52,17 +52,19 @@ if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
     }
 }
 
+
+
+// Aquí agregamos la llamada al método mostrarUsuarios del controlador
+if (isset($_GET['views']) && $_GET['views'] == 'admUsuarios') {
+    $admUsuarioController = new admUsuarioController();
+    $admUsuarioController->mostrarUsuarios();
+    exit(); // Salimos para que no continúe cargando otras vistas
+}
+
 // Manejo del registro de usuario
 if (isset($_GET['action']) && $_GET['action'] == 'registrarUsuario') {
     $usuarioController = new UsuarioController();
     $usuarioController->registrarUsuario();
-}
-
-// Manejo de la lista de usuarios
-if (isset($_GET['action']) && $_GET['action'] == 'mostrarUsuarios') {
-    $adminUsuarioController = new admUsuarioController();
-    $adminUsuarioController->mostrarUsuarios();
-    exit();
 }
 
 // Obtener el rol de la sesión
