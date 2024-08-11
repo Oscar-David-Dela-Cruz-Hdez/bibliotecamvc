@@ -6,7 +6,7 @@ require_once 'Conexion.php';
 use PDO;
 use PDOException;
 
-class AdmUsuario {
+class AdministradorUsuarios {
     private $db;
 
     public function __construct() {
@@ -20,12 +20,10 @@ class AdmUsuario {
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            // Manejo de errores: puedes loguear o mostrar el error para depuración
             error_log("Error al obtener usuarios: " . $e->getMessage());
             return [];
         }
     }
-
 
     public function actualizarUsuario($idusuario, $usuario, $nombre, $ap, $am, $correo, $contrasena, $imgusuario, $idrol) {
         try {
@@ -41,7 +39,6 @@ class AdmUsuario {
             $stmt->bindParam(":idrol", $idrol);
             return $stmt->execute();
         } catch (PDOException $e) {
-            // Manejo de errores: puedes loguear o mostrar el error para depuración
             error_log("Error al actualizar usuario: " . $e->getMessage());
             return false;
         }
@@ -53,7 +50,6 @@ class AdmUsuario {
             $stmt->bindParam(":idusuario", $idusuario);
             return $stmt->execute();
         } catch (PDOException $e) {
-            // Manejo de errores: puedes loguear o mostrar el error para depuración
             error_log("Error al eliminar usuario: " . $e->getMessage());
             return false;
         }
