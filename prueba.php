@@ -1,14 +1,30 @@
 <?php
-// Asegúrate de incluir el autoloader de Composer si estás usando Composer
-// require_once __DIR__ . '/vendor/autoload.php';
+// prueba.php
 
-// Incluir los archivos necesarios para el controlador
-require_once __DIR__ . '/app/controllers/administradorUsuariosController.php';
-require_once __DIR__ . '/app/models/AdministradorUsuarios.php';
+require_once "./config/applicazione.php";
+require_once "./autoload.php";
 
-// Crear una instancia del controlador
-$controller = new \app\controllers\AdministradorUsuariosController();
+use app\controllers\CategoriaControlador;
 
-// Llamar al método para mostrar usuarios
-$controller->mostrarUsuarios();
+// Instancia del controlador
+$categoriaControlador = new CategoriaControlador();
+
+// Llamada al método para obtener categorías
+$categorias = $categoriaControlador->obtenerCategorias();
+
+// Verifica si se obtuvieron categorías y muestra los resultados
+if (!empty($categorias)) {
+    echo "<h2>Categorías obtenidas:</h2>";
+    echo "<table border='1'>";
+    echo "<tr><th>ID Categoría</th><th>Nombre Categoría</th></tr>";
+    foreach ($categorias as $categoria) {
+        echo "<tr>";
+        echo "<td>" . $categoria['idcategoria'] . "</td>";
+        echo "<td>" . $categoria['vchCategoria'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No se encontraron categorías.";
+}
 ?>

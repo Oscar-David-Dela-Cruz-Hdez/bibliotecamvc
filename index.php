@@ -8,6 +8,7 @@ use app\controllers\vistaControllore;
 use app\controllers\UsuarioController;
 use app\models\Usuario;
 use app\controllers\admUsuarioController;
+use app\controllers\CategoriaControlador;
 
 // Iniciar sesión
 session_start();
@@ -50,6 +51,33 @@ if (isset($_POST['action']) && $_POST['action'] == 'iniciarSesion') {
     } else {
         $loginError = "Credenciales incorrectas. Inténtalo de nuevo.";
     }
+}
+
+// Manejo de la inserción de categorías
+if (isset($_POST['btnAgregar'])) {
+    $categoriaControlador = new CategoriaControlador();
+    $categoriaControlador->agregarCategoria();
+    exit();
+}
+
+// Obtener las categorías para mostrarlas en la vista
+if (isset($_GET['views']) && $_GET['views'] == 'bibliCategoria') {
+    $categoriaControlador = new CategoriaControlador();
+    $Consulta = $categoriaControlador->obtenerCategorias();
+}
+
+// Manejo de la eliminación de categorías
+if (isset($_GET['clase']) && $_GET['clase'] == 'CategoriaControlador' && isset($_GET['metodo']) && $_GET['metodo'] == 'eliminarCategoria') {
+    $categoriaControlador = new CategoriaControlador();
+    $categoriaControlador->eliminarCategoria();
+    exit(); // Salir para evitar cargar otras vistas
+}
+
+// Manejo de la actualización de categorías
+if (isset($_GET['clase']) && $_GET['clase'] == 'CategoriaControlador' && isset($_GET['metodo']) && $_GET['metodo'] == 'actualizarCategoria') {
+    $categoriaControlador = new CategoriaControlador();
+    $categoriaControlador->actualizarCategoria();
+    exit(); // Salir para evitar cargar otras vistas
 }
 
 
