@@ -27,7 +27,7 @@ class CategoriaControlador {
             }
         }
     }
-    
+
     public function obtenerCategorias() {
         $categoriaModelo = new CategoriaModelo();
         return $categoriaModelo->consultarCategorias();
@@ -51,5 +51,25 @@ class CategoriaControlador {
         }
     }
     
+
+    public function actualizarCategoria() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $idCategoria = $_POST['idcategoria'];
+            $nombreCategoria = $_POST['nombre'];
+
+            $categoriaModelo = new CategoriaModelo();
+            $resultado = $categoriaModelo->actualizarCategoria($idCategoria, $nombreCategoria);
+
+            if ($resultado) {
+                header('Location: ' . APP_URL . 'bibliCategoria');
+                exit();
+            } else {
+                echo "Error al actualizar la categoría";
+            }
+        }
+    }
+    
+
+
 
 }

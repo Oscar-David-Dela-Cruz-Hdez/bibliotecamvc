@@ -50,4 +50,21 @@ class CategoriaModelo {
             return false;
         }
     }
+
+    public function actualizarCategoria($idCategoria, $nombreCategoria) {
+        try {
+            $stmt = $this->dbh->prepare("CALL spActualizarCategoria(:idcategoria, :nombreCategoria)");
+            $stmt->bindParam(':idcategoria', $idCategoria, PDO::PARAM_INT);
+            $stmt->bindParam(':nombreCategoria', $nombreCategoria, PDO::PARAM_STR);
+            $stmt->execute();
+            return true;
+        } catch(PDOException $e) {
+            echo "Error al actualizar categoría: " . $e->getMessage();
+            return false;
+        }
+    }
+    
+    
+
+
 }

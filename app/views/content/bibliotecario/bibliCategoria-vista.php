@@ -50,10 +50,13 @@
                                                 echo '<button type="submit" name="btnEliminar" class="btn btn-danger">Eliminar</button>';
                                                 echo '</form>';
                                                 echo '&nbsp;';
-                                                echo '<form action="/bibliotecaMvc/index?clase=CategoriaControlador&metodo=actualizarCategoria" method="POST" style="display:inline;">';
-                                                echo '<input type="hidden" name="idcategoria" value="' . htmlspecialchars($categoria['idcategoria']) . '">';
-                                                echo '<button type="submit" name="btnActualizar" class="btn btn-warning">Actualizar</button>';
-                                                echo '</form>';
+                                                echo '<button class="btn btn-warning btnActualizar" 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#actualizarModal" 
+                                                        data-id="' . htmlspecialchars($categoria['idcategoria']) . '" 
+                                                        data-nombre="' . htmlspecialchars($categoria['vchCategoria']) . '">
+                                                        Actualizar
+                                                    </button>';
                                                 echo '</td>';
                                                 echo '</tr>';
                                             }
@@ -70,3 +73,44 @@
         </div>
     </main>
 </div>
+
+<!-- Modal para actualizar categoría -->
+<div class="modal fade" id="actualizarModal" tabindex="-1" aria-labelledby="actualizarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="formActualizarCategoria" method="post" action="/bibliotecaMvc/index?clase=CategoriaControlador&metodo=actualizarCategoria">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="actualizarModalLabel">Actualizar Categoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="idcategoria" id="modalIdCategoria">
+                    <div class="form-group">
+                        <label for="modalNombreCategoria">Nombre de la Categoría</label>
+                        <input type="text" class="form-control" id="modalNombreCategoria" name="nombre" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Asegúrate de que jQuery y Bootstrap se carguen antes de ejecutar este script
+    document.addEventListener('DOMContentLoaded', function () {
+        $('#actualizarModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); // Botón que activó el modal
+            var idCategoria = button.data('id'); // Extrae la información de atributos data-*
+            var nombreCategoria = button.data('nombre'); // Extrae la información de atributos data-*
+
+            // Actualiza los valores en el formulario dentro del modal
+            var modal = $(this);
+            modal.find('#modalIdCategoria').val(idCategoria);
+            modal.find('#modalNombreCategoria').val(nombreCategoria);
+        });
+    });
+</script>
